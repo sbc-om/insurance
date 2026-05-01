@@ -2,10 +2,12 @@
   position: relative;
   max-width: 100%;
   margin: 3rem auto 0;
+  overflow: hidden;
 }
 
 .embla__viewport {
   overflow: hidden;
+  width: 100%;
 }
 
 .embla__container {
@@ -93,21 +95,21 @@
 }
 
 .embla__button--prev {
-  left: -24px;
+  left: 12px;
 }
 
 .embla__button--next {
-  right: -24px;
+  right: 12px;
 }
 
 [dir="rtl"] .embla__button--prev {
   left: auto;
-  right: -24px;
+  right: 12px;
 }
 
 [dir="rtl"] .embla__button--next {
   right: auto;
-  left: -24px;
+  left: 12px;
 }
 
 [dir="rtl"] .embla__button--prev svg {
@@ -139,11 +141,21 @@
   }
 
   .embla__button--prev {
-    left: 0;
+    left: 8px;
   }
 
   .embla__button--next {
-    right: 0;
+    right: 8px;
+  }
+
+  [dir="rtl"] .embla__button--prev {
+    left: auto;
+    right: 8px;
+  }
+
+  [dir="rtl"] .embla__button--next {
+    right: auto;
+    left: 8px;
   }
 
   .embla__container {

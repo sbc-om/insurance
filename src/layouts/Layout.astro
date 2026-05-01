@@ -56,18 +56,14 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
       (() => {
         const storageKey = 'whatsapp-float-position';
         const button = document.getElementById('whatsapp-float');
-        if (!button) return;
+        if (!button || button.dataset.dragBound === 'true') return;
+        button.dataset.dragBound = 'true';
 
         const margin = 16;
         const dragThreshold = 6;
+        let activePointerId = null;
 
         const getPoint = (event) => {
-          if ('touches' in event && event.touches.length > 0) {
-            return { x: event.touches[0].clientX, y: event.touches[0].clientY };
-          }
-          if ('changedTouches' in event && event.changedTouches.length > 0) {
-            return { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY };
-          }
           return { x: event.clientX, y: event.clientY };
         };
 
@@ -128,7 +124,13 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
         let startTop = 0;
 
         const startDrag = (event) => {
+          if ('button' in event && event.button !== 0) {
+            return;
+          }
+
           event.preventDefault();
+          activePointerId = event.pointerId;
+          button.setPointerCapture(event.pointerId);
           const point = getPoint(event);
           startPointerX = point.x;
           startPointerY = point.y;
@@ -140,7 +142,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
         };
 
         const handleDragMove = (event) => {
-          if (!dragStarted) return;
+          if (!dragStarted || activePointerId !== event.pointerId) return;
 
           const point = getPoint(event);
           const deltaX = point.x - startPointerX;
@@ -161,8 +163,8 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
           applyPosition(startLeft + deltaX, startTop + deltaY);
         };
 
-        const endDrag = () => {
-          if (!dragStarted) return;
+        const endDrag = (event) => {
+          if (!dragStarted || activePointerId !== event.pointerId) return;
 
           if (isDragging || moved) {
             savePosition();
@@ -171,8 +173,13 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
           dragStarted = false;
           isDragging = false;
           moved = false;
+          activePointerId = null;
           button.classList.remove('is-dragging');
           document.body.classList.remove('whatsapp-dragging');
+
+          if (button.hasPointerCapture(event.pointerId)) {
+            button.releasePointerCapture(event.pointerId);
+          }
 
           window.setTimeout(() => {
             suppressClick = false;
@@ -183,13 +190,15 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
           event.preventDefault();
         });
 
-        button.addEventListener('mousedown', startDrag);
-        button.addEventListener('touchstart', startDrag, { passive: false });
-        window.addEventListener('mousemove', handleDragMove);
-        window.addEventListener('touchmove', handleDragMove, { passive: false });
-        window.addEventListener('mouseup', endDrag);
-        window.addEventListener('touchend', endDrag);
-        window.addEventListener('touchcancel', endDrag);
+        button.addEventListener('pointerdown', startDrag);
+        button.addEventListener('pointermove', handleDragMove);
+        button.addEventListener('pointerup', endDrag);
+        button.addEventListener('pointercancel', endDrag);
+        button.addEventListener('lostpointercapture', (event) => {
+          if (dragStarted && activePointerId === event.pointerId) {
+            endDrag(event);
+          }
+        });
 
         button.addEventListener('click', (event) => {
           if (suppressClick) {
@@ -232,6 +241,8 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
   html {
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   html,
@@ -252,6 +263,8 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     color: var(--color-text);
     background-color: var(--color-bg);
     line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

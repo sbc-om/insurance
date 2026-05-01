@@ -1,0 +1,281 @@
+---
+import WhatsAppIcon from "./WhatsAppIcon";
+
+interface Props {
+  variant: "contact" | "support";
+  phone: string;
+}
+
+type InputField = {
+  name: string;
+  label: string;
+  type: "text" | "tel" | "email";
+  placeholder: string;
+  required: boolean;
+};
+
+type TextareaField = {
+  name: string;
+  label: string;
+  type: "textarea";
+  placeholder: string;
+  required: boolean;
+};
+
+type FormField = InputField | TextareaField;
+
+type FormContent = {
+  title: string;
+  description: string;
+  helper: string;
+  button: string;
+  status: string;
+  fields: FormField[];
+};
+
+const { variant, phone } = Astro.props;
+
+const contentMap: Record<Props["variant"], FormContent> = {
+  contact: {
+    title: "Send an inquiry",
+    description: "Complete the form below and we will open WhatsApp with a ready-to-send message to our team.",
+    helper: "Your details stay in your browser until you choose to send the message in WhatsApp.",
+    button: "Continue in WhatsApp",
+    status: "WhatsApp is opening with your message draft.",
+    fields: [
+      { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
+      { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
+      { name: "subject", label: "Subject", type: "text", placeholder: "What is this about?", required: true },
+      { name: "message", label: "Message", type: "textarea", placeholder: "Tell us how we can help.", required: true },
+    ],
+  },
+  support: {
+    title: "Request support",
+    description: "Share your support request and we will prepare a structured WhatsApp message for you.",
+    helper: "After submitting, WhatsApp opens in a new tab with your message pre-filled and ready to send.",
+    button: "Send via WhatsApp",
+    status: "WhatsApp is opening with your support request.",
+    fields: [
+      { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
+      { name: "email", label: "Email", type: "email", placeholder: "your@email.com", required: true },
+      { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
+      { name: "message", label: "How can we help?", type: "textarea", placeholder: "Describe your issue or question.", required: true },
+    ],
+  },
+};
+
+const content = contentMap[variant];
+---
+
+<form
+  class="card form whatsapp-form"
+  data-whatsapp-form
+  data-phone={phone}
+  data-form-title={content.title}
+  data-status-message={content.status}
+>
+  <div class="whatsapp-form-header">
+    <div>
+      <h2 class="section-title-alt">{content.title}</h2>
+      <p class="muted whatsapp-form-description">{content.description}</p>
+    </div>
+    <div class="whatsapp-pill" aria-hidden="true">
+      <WhatsAppIcon />
+      <span>WhatsApp</span>
+    </div>
+  </div>
+
+  <div class="form-fields">
+    {content.fields.map((field) =>
+      field.type === "textarea" ? (
+        <label class="field-group">
+          <span class="field-label">{field.label}</span>
+          <textarea
+            name={field.name}
+            placeholder={field.placeholder}
+            aria-label={field.label}
+            data-label={field.label}
+            required={field.required}
+            rows="5"
+          ></textarea>
+        </label>
+      ) : (
+        <label class="field-group">
+          <span class="field-label">{field.label}</span>
+          <input
+            type={field.type}
+            name={field.name}
+            placeholder={field.placeholder}
+            aria-label={field.label}
+            data-label={field.label}
+            required={field.required}
+          />
+        </label>
+      )
+    )}
+  </div>
+
+  <div class="whatsapp-form-footer">
+    <p class="whatsapp-note">{content.helper}</p>
+    <button type="submit" class="btn btn-primary whatsapp-submit">{content.button}</button>
+    <p class="whatsapp-status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script is:inline>
+  document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
+    if (form.dataset.bound === "true") {
+      return;
+    }
+
+    form.dataset.bound = "true";
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!(form instanceof HTMLFormElement) || !form.reportValidity()) {
+        return;
+      }
+
+      const status = form.querySelector(".whatsapp-status");
+      const phone = form.dataset.phone || "";
+      const formTitle = form.dataset.formTitle || "Inquiry";
+      const statusMessage = form.dataset.statusMessage || "Opening WhatsApp.";
+      const fields = Array.from(form.querySelectorAll("[name]"));
+      const lines = [`*${formTitle}*`, ""];
+
+      fields.forEach((field) => {
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {
+          return;
+        }
+
+        const value = field.value.trim();
+
+        if (!value) {
+          return;
+        }
+
+        lines.push(`${field.dataset.label || field.name}: ${value}`);
+      });
+
+      const url = new URL("https://api.whatsapp.com/send");
+      url.searchParams.set("phone", phone);
+      url.searchParams.set("text", lines.join("\n"));
+
+      if (status instanceof HTMLElement) {
+        status.textContent = statusMessage;
+      }
+
+      window.open(url.toString(), "_blank", "noopener,noreferrer");
+    });
+  });
+</script>
+
+<style>
+  .whatsapp-form {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(18, 52, 86, 0.08);
+    box-shadow: 0 16px 40px rgba(15, 39, 64, 0.08);
+  }
+
+  .whatsapp-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .whatsapp-form-description {
+    margin: 0.45rem 0 0;
+    max-width: 48ch;
+  }
+
+  .whatsapp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #25d366, #1faa52);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.24);
+  }
+
+  .form-fields {
+    display: grid;
+    gap: 0.95rem;
+  }
+
+  .field-group {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .field-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .whatsapp-form input,
+  .whatsapp-form textarea {
+    width: 100%;
+    border: 1px solid rgba(18, 52, 86, 0.14);
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    font: inherit;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .whatsapp-form input:focus,
+  .whatsapp-form textarea:focus {
+    outline: 0;
+    border-color: rgba(37, 211, 102, 0.8);
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.12);
+  }
+
+  .whatsapp-form textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .whatsapp-form-footer {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .whatsapp-note {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .whatsapp-submit {
+    justify-self: start;
+  }
+
+  .whatsapp-status {
+    min-height: 1.2em;
+    margin: 0;
+    color: #128c4a;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-form {
+      padding: 1.2rem;
+    }
+
+    .whatsapp-form-header {
+      flex-direction: column;
+    }
+
+    .whatsapp-pill {
+      padding: 0.65rem 0.9rem;
+    }
+  }
+</style>

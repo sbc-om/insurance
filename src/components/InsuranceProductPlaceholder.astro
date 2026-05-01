@@ -48,14 +48,14 @@ const copy = {
 }[lang];
 ---
 
-<Layout title={`${product.title} | ${category.title[lang]}`} lang={lang}>
+<Layout title={`${product.title[lang]} | ${category.title[lang]}`} lang={lang}>
   <Header lang={lang} />
 
   <main dir={isRTL ? "rtl" : "ltr"}>
     <section class="placeholder-hero">
       <div class="container placeholder-inner">
         <span class="placeholder-badge">{copy.eyebrow}</span>
-        <h1>{product.title}</h1>
+        <h1>{product.title[lang]}</h1>
         <p>{copy.description}</p>
         <a href={basePath} class="back-link">{copy.backLabel}</a>
       </div>

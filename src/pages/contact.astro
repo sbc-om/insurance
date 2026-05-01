@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import WhatsAppInquiryForm from "../components/WhatsAppInquiryForm.astro";
 import i18next from "../lib/i18n";
 
 await i18next.changeLanguage("en");
@@ -42,15 +43,7 @@ await i18next.changeLanguage("en");
             </div>
           </div>
         </div>
-        <form class="card form">
-          <h2 class="section-title-alt">Send an Inquiry</h2>
-          <p class="muted">Messages sent through this page should be limited to general information requests about the website content.</p>
-          <input type="text" placeholder="Full name" aria-label="Full name" />
-          <input type="tel" placeholder="Phone" aria-label="Phone" />
-          <input type="text" placeholder="Subject" aria-label="Subject" />
-          <textarea placeholder="Your message" aria-label="Message"></textarea>
-          <button type="submit" class="btn btn-primary">Send inquiry</button>
-        </form>
+        <WhatsAppInquiryForm variant="contact" phone="96891200634" />
       </div>
     </section>
 

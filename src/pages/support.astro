@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import WhatsAppInquiryForm from "../components/WhatsAppInquiryForm.astro";
 import i18next from "../lib/i18n";
 
 await i18next.changeLanguage("en");
@@ -27,13 +28,7 @@ await i18next.changeLanguage("en");
             <p><strong>Location:</strong> Muscat, Oman</p>
           </div>
         </div>
-        <form class="card form">
-          <input type="text" placeholder="Full name" aria-label="Full name" />
-          <input type="email" placeholder="Email" aria-label="Email" />
-          <input type="tel" placeholder="Phone" aria-label="Phone" />
-          <textarea placeholder="How can we help?" aria-label="Message"></textarea>
-          <button type="submit" class="btn btn-primary">Send message</button>
-        </form>
+        <WhatsAppInquiryForm variant="support" phone="96891200634" />
       </div>
     </section>
   </main>
