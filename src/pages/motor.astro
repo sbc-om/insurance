@@ -1,0 +1,230 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Motor Insurance - Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-container">
+        <h1>Motor Insurance</h1>
+        <div class="hero-visual">
+          <img src="/images/motor-hero.png" alt="Motor Insurance Protection" class="hero-image" />
+        </div>
+        <p>Comprehensive and third-party cover for your vehicle.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">Drive with confidence</h2>
+            <p class="muted">This section provides general information about common motor insurance categories, including comprehensive and third-party cover, to help visitors understand typical options available in Oman.</p>
+
+            <h3 style="margin-top:2rem;">What's covered?</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>Third Party</h4>
+                <ul class="check-list">
+                  <li>Liability to others</li>
+                  <li>Legal requirements met</li>
+                  <li>Affordable pricing</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Comprehensive</h4>
+                <ul class="check-list">
+                  <li>Your car + third party</li>
+                  <li>Theft & fire</li>
+                  <li>Natural disasters</li>
+                  <li>Optional add-ons</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Optional add-ons</h3>
+            <ul class="feature-list">
+              <li><strong>Agency repair:</strong> Fix your car at authorized dealers</li>
+              <li><strong>Roadside assistance:</strong> 24/7 support anywhere</li>
+              <li><strong>GCC coverage:</strong> Drive across the Gulf</li>
+              <li><strong>Personal accident:</strong> Extra protection for you</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">About this category</h3>
+            <p class="muted">The information on this page is presented for introductory purposes only and is intended to help visitors understand the main features commonly associated with motor insurance.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>Need more information?</h3>
+              <p>Contact us for general information about this insurance category.</p>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>Need help?</h4>
+              <p style="font-size:0.9rem;">Call or message us</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .hero-visual {
+      width: 250px;
+      height: 250px;
+    }
+
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-container {
+      gap: 1.5rem;
+    }
+
+    .hero-visual {
+      width: 200px;
+      height: 200px;
+    }
+
+    .page-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .page-hero p {
+      font-size: 1rem;
+    }
+  }
+</style>

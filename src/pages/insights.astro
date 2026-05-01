@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Industry Insights" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Industry Insights</h1>
+        <p>Updates, articles, and thought leadership from Insurance.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <article class="card">
+          <h3>The Evolving Insurance Industry in the Middle East</h3>
+          <p class="muted">July 16, 2025 • 3 min read</p>
+          <p>Regulatory reforms and digital transformation are reshaping insurance across the region.</p>
+        </article>
+        <article class="card">
+          <h3>Corporate Risk Management Best Practices</h3>
+          <p class="muted">May 02, 2025 • 4 min read</p>
+          <p>How to evaluate and mitigate risks in complex business environments.</p>
+        </article>
+        <article class="card">
+          <h3>Health Coverage Trends for 2026</h3>
+          <p class="muted">Mar 10, 2025 • 5 min read</p>
+          <p>Key changes in medical insurance and what they mean for families.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

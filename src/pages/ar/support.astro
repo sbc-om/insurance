@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="الدعم" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>الدعم</h1>
+        <p>نحن هنا لمساعدتك في أي استفسار أو طلب.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">الحصول على الدعم</h2>
+          <p class="muted">نرد خلال يوم عمل واحد.</p>
+          <div style="margin-top:1rem;">
+            <p><strong>الموقع:</strong> مسقط، عمان</p>
+          </div>
+        </div>
+        <form class="card form">
+          <input type="text" placeholder="الاسم الكامل" aria-label="الاسم الكامل" />
+          <input type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني" />
+          <input type="tel" placeholder="رقم الهاتف" aria-label="رقم الهاتف" />
+          <textarea placeholder="كيف يمكننا مساعدتك؟" aria-label="الرسالة"></textarea>
+          <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

@@ -1,0 +1,234 @@
+---
+import i18next from "../lib/i18n";
+
+const { lang } = Astro.props;
+await i18next.changeLanguage(lang);
+const t = (key: string, options?: any) => i18next.t(key, options);
+
+const langPrefix = lang === "en" ? "" : `/${lang}`;
+const aboutLink = `${langPrefix}/about`;
+const contactLink = `${langPrefix}/contact`;
+const supportLink = `${langPrefix}/support`;
+const termsLink = `${langPrefix}/terms`;
+const privacyLink = `${langPrefix}/privacy`;
+
+const importantTitle = lang === "ar" ? "صفحات مهمة" : lang === "fa" ? "صفحات مهم" : "Important Pages";
+const ctaTitle = lang === "ar" ? "الدعم" : lang === "fa" ? "پشتیبانی" : "Support";
+const ctaDescription =
+  lang === "ar"
+    ? "فريقنا جاهز لمساعدتك والإجابة عن استفساراتك في أي وقت."
+    : lang === "fa"
+    ? "تیم ما آماده کمک به شما و پاسخ به سؤالات شما در هر زمان است."
+    : "Our team is here to help you and answer your questions anytime.";
+const supportBtnText = lang === "ar" ? "الدعم" : lang === "fa" ? "پشتیبانی" : "Support";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section footer-cta">
+        <h4>{ctaTitle}</h4>
+        <p class="footer-text">{ctaDescription}</p>
+        <a class="footer-cta-btn" href={supportLink}>{supportBtnText}</a>
+      </div>
+
+      <div class="footer-section footer-quick-links">
+        <h4>{importantTitle}</h4>
+        <div class="footer-buttons">
+          <a class="footer-btn" href={aboutLink}>{t("nav.about")}</a>
+          <a class="footer-btn" href={contactLink}>{t("nav.contact")}</a>
+          <a class="footer-btn" href={termsLink}>{t("footer.terms")}</a>
+          <a class="footer-btn" href={privacyLink}>{t("footer.privacy")}</a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>{t("footer.company")}</h4>
+        <p class="footer-text">{t("footer.disclaimer")}</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <p>{t("footer.company")}</p>
+      </div>
+      <div class="footer-links">
+        <a href={termsLink}>{t("footer.terms")}</a>
+        <span>|</span>
+        <a href={privacyLink}>{t("footer.privacy")}</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .footer-logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .footer-tagline {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .footer-contact p {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-section h4 {
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+  }
+
+  .footer-cta h4 {
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-cta .footer-text {
+    margin-bottom: 1rem;
+  }
+
+  .footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--color-accent);
+    color: #1a202c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .footer-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .footer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .footer-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-cta .footer-cta-btn:hover {
+    color: white;
+  }
+
+  .footer-section a:hover:not(.footer-cta-btn) {
+    color: var(--color-accent);
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-legal p {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    line-height: 1.5;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

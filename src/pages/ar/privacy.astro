@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="سياسة الخصوصية" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>سياسة الخصوصية</h1>
+        <p>توضح هذه الصفحة كيفية التعامل مع المعلومات عند استخدام الموقع أو إرسال استفسار عام.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">البيانات التي نجمعها</h2>
+        <p class="muted">قد نجمع المعلومات التي تقدمها عند التواصل عبر الموقع، مثل الاسم ورقم الهاتف ومحتوى الرسالة. وقد نجمع أيضاً بيانات تقنية واستخدامية أساسية لازمة لتشغيل الموقع وتحسينه.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">كيفية استخدام البيانات</h2>
+        <p class="muted">تُستخدم المعلومات لمراجعة الاستفسارات العامة والرد عليها، والمحافظة على تشغيل الموقع، وفهم أنماط الاستخدام، وتحسين طريقة عرض المحتوى.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">المشاركة والإفصاح</h2>
+        <p class="muted">لا نقوم بنشر المعلومات الشخصية المرسلة عبر الموقع. وقد تتم مشاركة معلومات محدودة مع مزودي الخدمات التقنيين عند الحاجة لتشغيل الموقع أو الإفصاح عنها عندما يقتضي القانون ذلك.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">ملفات تعريف الارتباط والتخزين المحلي</h2>
+        <p class="muted">نستخدم ملفات تعريف الارتباط والتخزين المحلي لتذكر تفضيلاتك وفهم استخدام الموقع. يمكنك التحكم بها عبر إعدادات المتصفح، لكن تعطيلها قد يحد من بعض الوظائف.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">الأمن والاحتفاظ</h2>
+        <p class="muted">نطبق إجراءات فنية وتنظيمية معقولة لحماية المعلومات. ويتم الاحتفاظ بالبيانات فقط للمدة اللازمة للأغراض التشغيلية أو الأمنية أو القانونية.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">حقوقك</h2>
+        <p class="muted">يمكنك طلب الوصول إلى بياناتك أو تصحيحها أو حذفها وفقاً للتحقق والمتطلبات القانونية.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">نقل البيانات دولياً</h2>
+        <p class="muted">قد تتم معالجة البيانات خارج سلطنة عمان مع تطبيق الضمانات المناسبة والالتزام بالقوانين المعمول بها.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">تواصل معنا</h2>
+        <p class="muted">للاستفسارات المتعلقة بخصوصية هذا الموقع، يمكن استخدام صفحة التواصل.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

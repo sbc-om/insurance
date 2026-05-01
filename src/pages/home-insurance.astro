@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Home Insurance - Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Home Insurance</h1>
+        <p>Protect your home and belongings with comprehensive cover.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">Secure your sanctuary</h2>
+            <p class="muted">Your home is your biggest investment. Protect it from fire, theft, natural disasters, and more with tailored home insurance that covers your property and possessions.</p>
+
+            <h3 style="margin-top:2rem;">What's covered?</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>Building Structure</h4>
+                <ul class="check-list">
+                  <li>Fire & explosion damage</li>
+                  <li>Natural disasters</li>
+                  <li>Water damage</li>
+                  <li>Structural repairs</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Contents & Belongings</h4>
+                <ul class="check-list">
+                  <li>Furniture & appliances</li>
+                  <li>Electronics & valuables</li>
+                  <li>Theft & burglary</li>
+                  <li>Replacement cost</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Liability Protection</h4>
+                <ul class="check-list">
+                  <li>Third-party injury</li>
+                  <li>Property damage to others</li>
+                  <li>Legal expenses</li>
+                  <li>Domestic worker cover</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Optional add-ons</h3>
+            <ul class="feature-list">
+              <li><strong>All-risk cover:</strong> Protection for valuable items inside and outside your home</li>
+              <li><strong>Alternative accommodation:</strong> Temporary housing if your home is uninhabitable</li>
+              <li><strong>Garden & outdoor:</strong> Cover for outdoor structures and landscaping</li>
+              <li><strong>Glass & sanitary:</strong> Windows, mirrors, and fixtures</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">Why choose Insurance?</h3>
+            <p class="muted">This section outlines common home insurance considerations, including property value, location, and typical coverage areas, for general informational purposes.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>Need more information?</h3>
+              <p>Contact us for general information about this insurance category.</p>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>Need help?</h4>
+              <p style="font-size:0.9rem;">Call or message us</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

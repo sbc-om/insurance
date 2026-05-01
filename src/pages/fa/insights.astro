@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="بینش‌های صنعت" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>بینش‌های صنعت</h1>
+        <p>آخرین مقالات و تحلیل‌ها از بیمه.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <article class="card">
+          <h3>تکامل صنعت بیمه در خاورمیانه</h3>
+          <p class="muted">۱۶ ژوئیه ۲۰۲۵ • ۳ دقیقه مطالعه</p>
+          <p>اصلاحات مقرراتی و تحول دیجیتال بازار را دوباره شکل می‌دهند.</p>
+        </article>
+        <article class="card">
+          <h3>بهترین شیوه‌های مدیریت ریسک برای شرکت‌ها</h3>
+          <p class="muted">۲ مه ۲۰۲۵ • ۴ دقیقه مطالعه</p>
+          <p>چگونه ریسک‌ها را در محیط‌های کسب‌وکار پیچیده ارزیابی و کاهش دهیم.</p>
+        </article>
+        <article class="card">
+          <h3>روندهای بیمه درمان برای سال ۲۰۲۶</h3>
+          <p class="muted">۱۰ مارس ۲۰۲۵ • ۵ دقیقه مطالعه</p>
+          <p>مهم‌ترین تغییرات و معنای آن‌ها برای خانواده‌ها.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

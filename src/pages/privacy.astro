@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Privacy Policy" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>This page explains how information is handled when visitors use this website or send a general inquiry.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">Information We Collect</h2>
+        <p class="muted">We may collect the information you provide when contacting us through the website, such as your name, phone number, and message. We may also collect basic technical and usage information needed to operate and improve the website.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">How We Use Information</h2>
+        <p class="muted">Information is used to review and respond to general inquiries, maintain the website, understand usage patterns, and improve content presentation.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Sharing & Disclosure</h2>
+        <p class="muted">We do not publish personal information submitted through the website. Information may be shared with technical service providers where required for website operation or disclosed where required by law.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Cookies & Local Storage</h2>
+        <p class="muted">We use cookies and local storage to remember preferences and understand site usage. You can manage cookies through your browser settings, but disabling them may limit functionality.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Security & Retention</h2>
+        <p class="muted">We apply reasonable technical and organizational safeguards to protect information. Data is retained only for as long as necessary for operational, security, or legal purposes.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Your Rights</h2>
+        <p class="muted">You may request access, correction, or deletion of your personal data. Requests are subject to verification and applicable legal obligations.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">International Transfers</h2>
+        <p class="muted">If data is processed outside Oman, we ensure appropriate safeguards and compliance with applicable laws.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Contact</h2>
+        <p class="muted">For privacy-related inquiries regarding this website, please use the contact page.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

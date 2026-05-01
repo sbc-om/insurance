@@ -1,0 +1,110 @@
+---
+import i18next from "../lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+const { lang } = Astro.props;
+const currentPath = Astro.url.pathname;
+await i18next.changeLanguage(lang);
+const homeLink = lang === "ar" ? "/ar" : lang === "fa" ? "/fa" : "/";
+const logo =
+  lang === "fa"
+    ? { mark: "بیمه", text: "در عمان" }
+    : lang === "ar"
+      ? { mark: "التأمين", text: "في عمان" }
+      : { mark: "Insurance", text: "in Oman" };
+---
+
+<header class="header">
+  <nav class="nav container">
+    <a href={homeLink} class="nav-logo">
+      <span class="nav-logo-mark">{logo.mark}</span>
+      <span class="nav-logo-text">{logo.text}</span>
+    </a>
+
+    <div class="nav-actions">
+      <LanguageSwitcher lang={lang} currentPath={currentPath} />
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark,
+  .nav-logo-text {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .nav-logo-mark {
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 22px rgba(26, 54, 93, 0.18);
+  }
+
+  .nav-logo-text {
+    color: #123456;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+
+  /* Actions */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    .nav {
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-logo {
+      gap: 0.4rem;
+    }
+
+    .nav-logo-mark {
+      padding: 0.35rem 0.55rem;
+      font-size: 0.72rem;
+    }
+
+    .nav-logo-text {
+      font-size: 1.05rem;
+    }
+
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Advisory Services" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Advisory Services</h1>
+        <p>Clear advice, better cover.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>Custom Plans</h3>
+          <p>Plans made for you.</p>
+        </div>
+        <div class="card">
+          <h3>Insurance Audit</h3>
+          <p>Review what you have.</p>
+        </div>
+        <div class="card">
+          <h3>Risk Assessment</h3>
+          <p>Find and reduce risks.</p>
+        </div>
+        <div class="card">
+          <h3>International Insurance Liaison</h3>
+          <p>Regional and global cover.</p>
+        </div>
+        <div class="card">
+          <h3>Claims Advocacy</h3>
+          <p>Support when you claim.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

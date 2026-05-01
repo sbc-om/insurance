@@ -1,0 +1,144 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+
+const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
+---
+
+<Layout title="تماس با ما" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>تماس با ما</h1>
+        <p>برای دریافت اطلاعات عمومی درباره شرکت‌ها و دسته‌بندی‌های بیمه معرفی‌شده در این وبسایت با ما تماس بگیرید.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">اطلاعات تماس</h2>
+          <p class="muted">از اطلاعات زیر برای پرسش‌های عمومی مربوط به وبسایت استفاده کنید.</p>
+          <div class="contact-stack" style="margin-top:1rem;">
+            <div class="card contact-card">
+              <h3>وبسایت</h3>
+              <p>بیمه در عمان</p>
+            </div>
+            <div class="card contact-card">
+              <h3>واتس اپ</h3>
+              <p>
+                <a class="whatsapp-link" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  ارسال پیام
+                </a>
+              </p>
+            </div>
+            <div class="card contact-card">
+              <h3>موقعیت</h3>
+              <p>مسقط، عمان</p>
+            </div>
+            <div class="card contact-card">
+              <h3>زمان پاسخ‌گویی</h3>
+              <p>درخواست‌های عمومی در ساعات کاری بررسی می‌شوند.</p>
+            </div>
+          </div>
+        </div>
+        <form class="card form whatsapp-form" data-form-title="درخواست از صفحه تماس با ما" data-whatsapp-link={whatsappLink}>
+          <h2 class="section-title-alt">ارسال درخواست</h2>
+          <p class="muted">پیام‌های این بخش باید صرفاً برای درخواست اطلاعات عمومی درباره محتوای وبسایت باشند.</p>
+          <input type="text" name="fullName" placeholder="نام کامل" aria-label="نام کامل" />
+          <input type="tel" name="phone" placeholder="شماره تلفن" aria-label="شماره تلفن" />
+          <input type="text" name="subject" placeholder="موضوع" aria-label="موضوع" />
+          <textarea name="message" placeholder="پیام شما" aria-label="پیام"></textarea>
+          <button type="submit" class="btn btn-primary whatsapp-cta">ارسال پیام در واتس‌اپ</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>دامنه ارتباط</h3>
+          <p class="muted">این صفحه برای پرسش‌های عمومی درباره وبسایت و محتوای آن در نظر گرفته شده است.</p>
+        </div>
+        <div class="card">
+          <h3>بیمه‌نامه و خسارت</h3>
+          <p class="muted">صدور بیمه‌نامه، ارزیابی ریسک، پوشش و رسیدگی به خسارت از طریق شرکت بیمه مربوطه انجام می‌شود.</p>
+        </div>
+        <div class="card">
+          <h3>زبان‌ها</h3>
+          <p class="muted">محتوای وبسایت به زبان‌های فارسی، عربی و انگلیسی ارائه می‌شود.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang="fa" />
+</Layout>
+
+<script is:inline>
+  (() => {
+    const forms = document.querySelectorAll('.whatsapp-form');
+    forms.forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const title = form.getAttribute('data-form-title') || 'پیام جدید';
+        const whatsapp = form.getAttribute('data-whatsapp-link');
+        const lines = [title];
+        const labels = {
+          fullName: 'نام کامل',
+          phone: 'شماره تلفن',
+          subject: 'موضوع',
+          message: 'پیام',
+        };
+
+        Object.entries(labels).forEach(([key, label]) => {
+          const value = String(data.get(key) || '').trim();
+          if (value) {
+            lines.push(`${label}: ${value}`);
+          }
+        });
+
+        const url = `${whatsapp}&text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    });
+  })();
+</script>
+
+<style>
+  .contact-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .whatsapp-link {
+    color: #128c7e;
+    font-weight: 700;
+  }
+
+  .whatsapp-link:hover {
+    color: #25d366;
+  }
+
+  .whatsapp-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-cta {
+      width: 100%;
+    }
+  }
+</style>

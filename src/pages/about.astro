@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="About Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>About Insurance</h1>
+        <p>A multilingual reference website that introduces insurance companies and insurance categories in Oman.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">What This Website Is</h2>
+          <p class="muted">Insurance is an informational website developed to present insurance companies, insurance categories, and general product information relevant to the Oman market in English, Arabic, and Persian.</p>
+          <div class="badge-list" style="margin-top:1rem;">
+            <span class="badge">Multilingual</span>
+            <span class="badge">Informational</span>
+            <span class="badge">Oman</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Purpose</h3>
+          <p>This website is intended to help visitors review insurers and understand the main insurance categories presented on the site.</p>
+          <h3 style="margin-top:1rem;">Positioning</h3>
+          <p>The website is neutral in tone and does not issue policies, guarantee coverage, or replace the official documentation of any insurer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content" id="values">
+      <div class="container">
+        <h2 class="section-title-alt">Editorial Principles</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Clarity</h3>
+            <p>We organize insurance information in a way that is easier to scan and compare.</p>
+          </div>
+          <div class="card">
+            <h3>Neutrality</h3>
+            <p>Content is written for general reference and avoids promotional or advisory positioning.</p>
+          </div>
+          <div class="card">
+            <h3>Transparency</h3>
+            <p>Visitors are encouraged to rely on each insurer's official terms, exclusions, and policy documents.</p>
+          </div>
+          <div class="card">
+            <h3>Accessibility</h3>
+            <p>The website is prepared to support visitors across multiple languages with consistent structure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>What You Will Find</h3>
+          <p class="muted">General overviews of motor, medical, life, travel, home, and corporate insurance categories, along with insurer profile pages.</p>
+        </div>
+        <div class="card">
+          <h3>Who It Is For</h3>
+          <p class="muted">Individuals, families, and businesses looking for a structured introduction to the insurance market in Oman.</p>
+        </div>
+        <div class="card">
+          <h3>Important Note</h3>
+          <p class="muted">Coverage decisions, prices, underwriting outcomes, and claims handling remain the responsibility of the relevant insurer.</p>
+        </div>
+        <div class="card">
+          <h3>Company</h3>
+          <p class="muted">This website is presented as a general informational platform for insurance information in Oman.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

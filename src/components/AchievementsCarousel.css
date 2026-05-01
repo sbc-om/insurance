@@ -1,0 +1,123 @@
+.achievement-embla {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.achievement-embla__viewport {
+  overflow: hidden;
+}
+
+.achievement-embla__container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.achievement-embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0.5rem;
+}
+
+.achievement-card-media {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.achievement-card-media img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.achievement-embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.achievement-embla__button:hover {
+  background: var(--color-primary, #1a365d);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.achievement-embla__button:hover svg {
+  color: white;
+}
+
+.achievement-embla__button svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary, #1a365d);
+  transition: color 0.3s ease;
+}
+
+.achievement-embla__button--prev {
+  left: -18px;
+}
+
+.achievement-embla__button--next {
+  right: -18px;
+}
+
+[dir="rtl"] .achievement-embla__button--prev {
+  left: auto;
+  right: -18px;
+}
+
+[dir="rtl"] .achievement-embla__button--next {
+  right: auto;
+  left: -18px;
+}
+
+[dir="rtl"] .achievement-embla__button--prev svg,
+[dir="rtl"] .achievement-embla__button--next svg {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 768px) {
+  .achievement-embla {
+    max-width: 100%;
+  }
+
+  .achievement-card-media {
+    min-height: 220px;
+    padding: 1rem;
+  }
+
+  .achievement-embla__button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .achievement-embla__button--prev {
+    left: 0;
+  }
+
+  .achievement-embla__button--next {
+    right: 0;
+  }
+}

@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Support" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Support</h1>
+        <p>We are here to help with general questions about the information presented on this website.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">Get support</h2>
+          <p class="muted">We respond within 1 business day.</p>
+          <div style="margin-top:1rem;">
+            <p><strong>Location:</strong> Muscat, Oman</p>
+          </div>
+        </div>
+        <form class="card form">
+          <input type="text" placeholder="Full name" aria-label="Full name" />
+          <input type="email" placeholder="Email" aria-label="Email" />
+          <input type="tel" placeholder="Phone" aria-label="Phone" />
+          <textarea placeholder="How can we help?" aria-label="Message"></textarea>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="حول التأمين" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>حول التأمين</h1>
+        <p>موقع متعدد اللغات للتعريف بشركات التأمين وفئات التأمين في سلطنة عمان.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">ما هو هذا الموقع</h2>
+          <p class="muted">التأمين موقع معلوماتي أُعد لعرض شركات التأمين وفئات التأمين والمعلومات العامة ذات الصلة بالسوق العماني باللغات العربية والإنجليزية والفارسية.</p>
+          <div class="badge-list" style="margin-top:1rem;">
+            <span class="badge">متعدد اللغات</span>
+            <span class="badge">معلوماتي</span>
+            <span class="badge">عُمان</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>الغرض</h3>
+          <p>الغرض من هذا الموقع هو مساعدة الزائر على مراجعة شركات التأمين والتعرف على فئات التأمين الرئيسية المعروضة فيه.</p>
+          <h3 style="margin-top:1rem;">الطابع</h3>
+          <p>الموقع محايد في الصياغة ولا يصدر وثائق تأمين ولا يضمن التغطية ولا يحل محل المستندات الرسمية الخاصة بكل شركة تأمين.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content" id="values">
+      <div class="container">
+        <h2 class="section-title-alt">مبادئ المحتوى</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>الوضوح</h3>
+            <p>يتم تنظيم المعلومات التأمينية بطريقة تسهّل على الزائر قراءتها ومراجعتها.</p>
+          </div>
+          <div class="card">
+            <h3>الحياد</h3>
+            <p>المحتوى مخصص للتعريف العام ويتجنب الصياغة الترويجية أو الاستشارية.</p>
+          </div>
+          <div class="card">
+            <h3>الشفافية</h3>
+            <p>ينبغي الرجوع إلى الوثائق الرسمية لكل شركة تأمين لمعرفة الشروط والاستثناءات والتغطيات النهائية.</p>
+          </div>
+          <div class="card">
+            <h3>سهولة الوصول</h3>
+            <p>تم إعداد الموقع ليوفر تجربة متسقة عبر عدة لغات.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>ما الذي ستجده هنا</h3>
+          <p class="muted">مقدمات عامة عن تأمين السيارات والطبي والحياة والسفر والمنزل والتأمينات المؤسسية، إضافة إلى صفحات تعريفية بالشركات.</p>
+        </div>
+        <div class="card">
+          <h3>لمن هذا الموقع</h3>
+          <p class="muted">للأفراد والعائلات والشركات الباحثين عن عرض منظم لسوق التأمين في سلطنة عمان.</p>
+        </div>
+        <div class="card">
+          <h3>ملاحظة مهمة</h3>
+          <p class="muted">الأسعار وقرارات الاكتتاب والتغطيات النهائية وإجراءات المطالبات تبقى ضمن مسؤولية شركة التأمين المعنية.</p>
+        </div>
+        <div class="card">
+          <h3>الشركة</h3>
+          <p class="muted">يتم تقديم هذا الموقع كمنصة معلومات عامة عن التأمين في سلطنة عمان.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

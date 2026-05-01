@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="بیمه درمان" lang="fa">
+  <Header lang="fa" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container">
+        <h1>بیمه درمان</h1>
+        <p>پوشش سلامت جامع برای شما و خانواده‌تان.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">سلامت شما برای ما مهم است</h2>
+            <p class="muted">مراقبت‌های سلامت با کیفیت بالا بدون نگرانی از هزینه‌ها دریافت کنید. طرح‌های بیمه درمان ما شامل بستری، سرپایی، داروها و موارد بیشتر است - طراحی‌شده برای افراد و خانواده‌ها.</p>
+
+            <h3 style="margin-top:2rem;">بیمه چه چیزهایی را پوشش می‌دهد؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>مراقبت بستری</h4>
+                <ul class="check-list">
+                  <li>بستری و جراحی</li>
+                  <li>مراقبت‌های ویژه و اورژانس</li>
+                  <li>مراقبت پس از عمل</li>
+                  <li>اقامت و غذا</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>مراقبت سرپایی</h4>
+                <ul class="check-list">
+                  <li>ویزیت پزشک</li>
+                  <li>ویزیت متخصصان</li>
+                  <li>آزمایش‌های تشخیصی</li>
+                  <li>نسخه‌های دارویی</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>مزایای اضافی</h4>
+                <ul class="check-list">
+                  <li>زایمان و نوزاد</li>
+                  <li>دندان و بینایی</li>
+                  <li>مراقبت پیشگیرانه</li>
+                  <li>تخلیه پزشکی اورژانسی</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">گزینه‌های طرح</h3>
+            <ul class="feature-list">
+              <li><strong>انفرادی:</strong> پوشش شخصی برای اعضای مجرد</li>
+              <li><strong>خانوادگی:</strong> شامل همسر و فرزندان</li>
+              <li><strong>منطقه‌ای:</strong> پوشش در عمان و کشورهای خلیج</li>
+              <li><strong>بین‌المللی:</strong> دسترسی پزشکی جهانی</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">چرا بیمه را انتخاب کنید؟</h3>
+            <p class="muted">ما با شرکت‌های بیمه و ارائه‌دهندگان خدمات بهداشتی برتر همکاری می‌کنیم. از شبکه گسترده بیمارستان‌ها و کلینیک‌ها انتخاب کنید. درمان بدون پرداخت نقدی در مراکز تأیید شده دریافت کنید.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>اطلاعات بیشتری نیاز دارید؟</h3>
+              <p>برای دریافت اطلاعات عمومی درباره این دسته‌بندی با ما تماس بگیرید.</p>
+              <a href="/fa/contact" class="btn btn-primary">تماس با ما</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>کمک می‌خواهید؟</h4>
+              <p style="font-size:0.9rem;">تماس بگیرید یا پیام دهید</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

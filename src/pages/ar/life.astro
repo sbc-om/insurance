@@ -1,0 +1,169 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="تأمين الحياة" lang="ar">
+  <Header lang="ar" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container">
+        <h1>تأمين الحياة</h1>
+        <p>الأمان المالي لأحبائك.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">احمِ ما يهمك أكثر</h2>
+            <p class="muted">يضمن تأمين الحياة المستقبل المالي لعائلتك. سواء كان سداد الديون أو تغطية النفقات اليومية أو تمويل التعليم—سيتم رعاية أحبائك.</p>
+
+            <h3 style="margin-top:2rem;">ما الذي يغطيه التأمين؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>تأمين محدد المدة</h4>
+                <ul class="check-list">
+                  <li>فترة تغطية ثابتة</li>
+                  <li>أقساط ميسورة</li>
+                  <li>دفع مزايا الوفاة</li>
+                  <li>شروط مرنة</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>تأمين مدى الحياة</h4>
+                <ul class="check-list">
+                  <li>تغطية مدى الحياة</li>
+                  <li>تراكم القيمة النقدية</li>
+                  <li>مكون استثماري</li>
+                  <li>تخطيط عقاري</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>الأمراض الحرجة</h4>
+                <ul class="check-list">
+                  <li>مبلغ مقطوع عند التشخيص</li>
+                  <li>تغطية الأمراض الرئيسية</li>
+                  <li>تعويض الدخل</li>
+                  <li>المصاريف الطبية</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">المزايا الرئيسية</h3>
+            <ul class="feature-list">
+              <li><strong>الحماية المالية:</strong> تأكد من أن عائلتك تحافظ على نمط حياتها</li>
+              <li><strong>تغطية الديون:</strong> سداد الرهون العقارية والقروض والالتزامات</li>
+              <li><strong>صندوق التعليم:</strong> تأمين تعليم أطفالك المستقبلي</li>
+              <li><strong>مزايا ضريبية:</strong> مزايا ضريبية محتملة على الأقساط والمدفوعات</li>
+              <li><strong>راحة البال:</strong> اعلم أن أحباءك محميون</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">لماذا تختار التأمين؟</h3>
+            <p class="muted">تقدم هذه الصفحة معلومات عامة عن أنواع تأمين الحياة والعناصر الأساسية التي قد تساعد الزائر على فهم الفروقات بين المنتجات المتاحة.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>هل تحتاج إلى معلومات إضافية؟</h3>
+              <p>تواصل معنا للحصول على معلومات عامة حول هذه الفئة التأمينية.</p>
+              <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>تحتاج مساعدة؟</h4>
+              <p style="font-size:0.9rem;">اتصل أو راسلنا</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

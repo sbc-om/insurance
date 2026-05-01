@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+
+const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
+---
+
+<Layout title="پشتیبانی" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>پشتیبانی</h1>
+        <p>ما اینجاییم تا در هر سؤال یا درخواستی به شما کمک کنیم.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">دریافت پشتیبانی</h2>
+          <p class="muted">ما در یک روز کاری پاسخ می‌دهیم.</p>
+          <div style="margin-top:1rem;">
+            <p><strong>واتس اپ:</strong> <a class="whatsapp-link" href={whatsappLink} target="_blank" rel="noopener noreferrer">ارسال پیام</a></p>
+            <p><strong>آدرس:</strong> مسقط، عمان</p>
+          </div>
+        </div>
+        <form class="card form whatsapp-form" data-form-title="درخواست پشتیبانی از صفحه پشتیبانی" data-whatsapp-link={whatsappLink}>
+          <input type="text" name="fullName" placeholder="نام کامل" aria-label="نام کامل" />
+          <input type="tel" name="phone" placeholder="شماره تلفن" aria-label="شماره تلفن" />
+          <input type="text" name="subject" placeholder="موضوع" aria-label="موضوع" />
+          <textarea name="message" placeholder="چگونه می‌توانیم به شما کمک کنیم؟" aria-label="پیام"></textarea>
+          <button type="submit" class="btn btn-primary">ارسال پیام در واتس‌اپ</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>
+
+<script is:inline>
+  (() => {
+    const forms = document.querySelectorAll('.whatsapp-form');
+    forms.forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const title = form.getAttribute('data-form-title') || 'پیام جدید';
+        const whatsapp = form.getAttribute('data-whatsapp-link');
+        const lines = [title];
+        const labels = {
+          fullName: 'نام کامل',
+          phone: 'شماره تلفن',
+          subject: 'موضوع',
+          message: 'پیام',
+        };
+
+        Object.entries(labels).forEach(([key, label]) => {
+          const value = String(data.get(key) || '').trim();
+          if (value) {
+            lines.push(`${label}: ${value}`);
+          }
+        });
+
+        const url = `${whatsapp}&text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    });
+  })();
+</script>
+
+<style>
+  .whatsapp-link {
+    color: #128c7e;
+    font-weight: 700;
+  }
+
+  .whatsapp-link:hover {
+    color: #25d366;
+  }
+</style>

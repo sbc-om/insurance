@@ -1,0 +1,471 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AlliancesCarousel from "../../components/AlliancesCarousel.tsx";
+import i18next from "../../lib/i18n";
+import {
+  FaCarSide,
+  FaFileInvoiceDollar,
+  FaHeartbeat,
+  FaHome,
+  FaInfoCircle,
+  FaPlaneDeparture,
+  FaShip,
+  FaUserShield,
+} from "react-icons/fa";
+
+i18next.changeLanguage("fa");
+const t = (key: string, options?: any) => i18next.t(key, options);
+
+const alliances = [
+  { logo: "/images/alliances/oqic.png", alt: "لوگوی OQIC", slug: "oqic" },
+  { logo: "/images/alliances/liva.png", alt: "لوگوی Liva Insurance", slug: "liva" },
+  { logo: "/images/alliances/damana.png", alt: "لوگوی Damana Insurance", slug: "damana" },
+  { logo: "/images/alliances/gig.png", alt: "لوگوی GIG Insurance", slug: "gig" },
+  { logo: "/images/alliances/new-india.png", alt: "لوگوی New India Assurance", slug: "new-india" },
+  { logo: "/images/alliances/al-madina-takaful.png", alt: "لوگوی Al Madina Takaful", slug: "al-madina-takaful" },
+  { logo: "/images/alliances/dhofar.png", alt: "لوگوی Dhofar Insurance", slug: "dhofar" },
+  { logo: "/images/alliances/takaful-oman.png", alt: "لوگوی Takaful Oman Insurance", slug: "takaful-oman" },
+  { logo: "/images/alliances/orient.png", alt: "لوگوی Orient Insurance", slug: "orient" },
+  { logo: "/images/alliances/falcon-arabia.png", alt: "لوگوی Falcon Arabia Insurance", slug: "falcon-arabia" },
+  { logo: "/images/alliances/iran-insurance.png", alt: "لوگوی Iran Insurance", slug: "iran-insurance" },
+  { logo: "/images/alliances/muscat-insurance.png", alt: "لوگوی Muscat Insurance Company", slug: "muscat-insurance" },
+];
+
+---
+
+<Layout title={String(t("site.title"))} lang="fa">
+  <Header lang="fa" />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-main" dir="rtl" aria-label="خدمات بیمه">
+      <div class="container hero-main-content">
+        <div class="hero-text">
+          <h1 class="hero-main-title">بیمه در عمان</h1>
+          <p class="hero-summary">یک پلتفرم حرفه‌ای و چندزبانه برای معرفی شرکت‌های بیمه، دسته‌بندی محصولات و اطلاعات عمومی بیمه در عمان با محتوایی روشن، منظم و قابل فهم.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Insurance Offers Section -->
+    <section class="quick-offers" dir="rtl" aria-label="پیشنهادات سریع بیمه">
+      <div class="container">
+        <div class="offers-wrapper">
+          <h2 class="offers-title">دسته‌بندی‌های بیمه را ببینید</h2>
+          <div class="insurance-grid">
+            <!-- Motor Insurance -->
+            <a href="/fa/motor" class="insurance-card">
+              <div class="insurance-icon motor">
+                <FaCarSide />
+              </div>
+              <h3 class="insurance-title">بیمه خودرو</h3>
+            </a>
+
+            <!-- Travel Insurance -->
+            <a href="/fa/travel" class="insurance-card">
+              <div class="insurance-icon travel">
+                <FaPlaneDeparture />
+              </div>
+              <h3 class="insurance-title">بیمه مسافرت</h3>
+            </a>
+
+            <!-- Home Insurance -->
+            <a href="/fa/home-insurance" class="insurance-card">
+              <div class="insurance-icon domestic">
+                <FaHome />
+              </div>
+              <h3 class="insurance-title">بیمه منزل</h3>
+            </a>
+
+            <!-- Medical Insurance -->
+            <a href="/fa/medical" class="insurance-card">
+              <div class="insurance-icon medical">
+                <FaHeartbeat />
+              </div>
+              <h3 class="insurance-title">بیمه درمان</h3>
+            </a>
+
+            <!-- Credit Life -->
+            <a href="/fa/life" class="insurance-card">
+              <div class="insurance-icon credit">
+                <FaFileInvoiceDollar />
+              </div>
+              <h3 class="insurance-title">بیمه وام</h3>
+            </a>
+
+            <!-- Marine Insurance -->
+            <a href="/fa/contact" class="insurance-card">
+              <div class="insurance-icon marine">
+                <FaShip />
+              </div>
+              <h3 class="insurance-title">بیمه دریایی</h3>
+            </a>
+
+            <!-- Personal Accident -->
+            <a href="/fa/contact" class="insurance-card">
+              <div class="insurance-icon accident">
+                <FaUserShield />
+              </div>
+              <h3 class="insurance-title">حوادث شخصی</h3>
+            </a>
+
+            <!-- General Insurance Information -->
+            <a href="/fa/contact" class="insurance-card hub-card">
+              <div class="insurance-icon hub-icon">
+                <FaInfoCircle />
+              </div>
+              <h3 class="insurance-title">اطلاعات عمومی</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategic Alliances Section -->
+    <section class="section alliances">
+      <div class="container">
+        <h2 class="section-title">{t("alliances.title", { ns: "home" })}</h2>
+        <AlliancesCarousel alliances={alliances} isRTL={true} lang="fa" client:load />
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <h2 class="section-title">آیا آماده محافظت شدن هستید؟</h2>
+        <p class="section-description">برای دریافت اطلاعات عمومی درباره شرکت‌های بیمه و دسته‌بندی‌های معرفی‌شده در وبسایت با ما در تماس باشید.</p>
+        <a href="/fa/contact" class="btn btn-primary">{t("cta.contactUs")}</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>
+
+<style>
+  /* Hero Main Section */
+  .hero-main {
+    min-height: 42vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1a365d 0%, #2c5282 60%, #1e3a5f 100%);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 90% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-main-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .hero-text {
+    text-align: center;
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: #C9A961;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    margin-bottom: 1.15rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    color: #ffffff;
+    margin-bottom: 0.85rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .hero-summary {
+    font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  /* Quick Offers Section */
+  .quick-offers {
+    background: var(--color-bg-light);
+    padding: 5rem 0;
+  }
+
+  .offers-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .offers-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+  }
+
+  .insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .insurance-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.35rem 1.05rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insurance-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .insurance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .insurance-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .insurance-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .insurance-card:hover .insurance-icon {
+    transform: scale(1.1);
+  }
+
+  .insurance-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 2.5;
+  }
+
+  .insurance-icon.motor {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+  }
+
+  .insurance-icon.travel {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+  }
+
+  .insurance-icon.domestic,
+  .insurance-icon.home {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+  }
+
+  .insurance-icon.medical {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+  }
+
+  .insurance-icon.credit {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+  }
+
+  .insurance-icon.marine {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: white;
+  }
+
+  .insurance-icon.accident {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+  }
+
+  .insurance-icon.hub-icon {
+    background: linear-gradient(135deg, #C9A961, #B8963F);
+    color: white;
+  }
+
+  .hub-card {
+    background: linear-gradient(135deg, #C9A961, #B8963F);
+    border: none;
+  }
+
+  .hub-card:hover {
+    background: linear-gradient(135deg, #B8963F, #A6802E);
+    transform: none;
+  }
+
+  .hub-card .insurance-title {
+    color: white;
+    font-weight: 700;
+  }
+
+  .insurance-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .insurance-price {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section Styles */
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .section-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    text-align: center;
+    color: var(--color-text-light);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+  }
+
+  /* Alliances Section */
+  .alliances {
+    background-color: var(--color-bg-light);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-color: var(--color-accent);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section .section-title {
+    color: white;
+  }
+
+  .cta-section .section-description {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-main {
+      min-height: 38vh;
+    }
+
+    .insurance-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-main {
+      min-height: 34vh;
+    }
+
+    .hero-kicker {
+      letter-spacing: 0.18em;
+    }
+
+    .hero-main-content {
+      padding: 2.25rem 1rem;
+    }
+
+    .quick-offers {
+      padding: 3rem 0;
+    }
+
+    .insurance-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .insurance-card {
+      padding: 1.1rem 0.6rem;
+    }
+
+    .insurance-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.75rem;
+    }
+
+    .insurance-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .insurance-title {
+      font-size: 0.9rem;
+    }
+  }
+</style>

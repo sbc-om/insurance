@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="خدمات مشاوره" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>خدمات مشاوره</h1>
+        <p>مشاوره شفاف برای پوشش بهتر.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>طرح‌های سفارشی</h3>
+          <p>طرح‌هایی متناسب با نیازهای شما.</p>
+        </div>
+        <div class="card">
+          <h3>ممیزی بیمه</h3>
+          <p>بررسی آنچه دارید.</p>
+        </div>
+        <div class="card">
+          <h3>ارزیابی ریسک</h3>
+          <p>شناسایی و کاهش ریسک‌ها.</p>
+        </div>
+        <div class="card">
+          <h3>ارتباط بیمه بین‌المللی</h3>
+          <p>پوشش منطقه‌ای و جهانی.</p>
+        </div>
+        <div class="card">
+          <h3>دفاع از خسارت</h3>
+          <p>پشتیبانی در زمان خسارت.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

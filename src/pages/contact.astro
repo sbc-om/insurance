@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Contact" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Contact us for general information about the companies and insurance categories presented on this website.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">Contact Information</h2>
+          <p class="muted">Use the details below for general website inquiries.</p>
+          <div class="contact-stack" style="margin-top:1rem;">
+            <div class="card contact-card">
+              <h3>Website</h3>
+              <p>Insurance in Oman</p>
+            </div>
+            <div class="card contact-card">
+              <h3>Contact</h3>
+              <p>Use the contact form on this page for general website inquiries.</p>
+            </div>
+            <div class="card contact-card">
+              <h3>Location</h3>
+              <p>Muscat, Oman</p>
+            </div>
+            <div class="card contact-card">
+              <h3>Availability</h3>
+              <p>General inquiries are reviewed during normal business hours.</p>
+            </div>
+          </div>
+        </div>
+        <form class="card form">
+          <h2 class="section-title-alt">Send an Inquiry</h2>
+          <p class="muted">Messages sent through this page should be limited to general information requests about the website content.</p>
+          <input type="text" placeholder="Full name" aria-label="Full name" />
+          <input type="tel" placeholder="Phone" aria-label="Phone" />
+          <input type="text" placeholder="Subject" aria-label="Subject" />
+          <textarea placeholder="Your message" aria-label="Message"></textarea>
+          <button type="submit" class="btn btn-primary">Send inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>Scope of Contact</h3>
+          <p class="muted">This contact page is intended for general website inquiries and content-related questions.</p>
+        </div>
+        <div class="card">
+          <h3>Policies and Claims</h3>
+          <p class="muted">Policy issuance, underwriting, coverage decisions, and claims remain subject to the relevant insurer's channels and procedures.</p>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <p class="muted">The website content is available in English, Arabic, and Persian.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" aria-label="Insurance location map">
+      <div class="container">
+        <div class="map-embed">
+          <iframe
+            title="Insurance location"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=58.357392%2C23.5819%2C58.367392%2C23.5919&layer=mapnik&marker=23.5869%2C58.362392"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .map-section {
+    padding: 0 0 4rem;
+  }
+
+  .map-embed {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    height: 380px;
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: calc(100% + 30px);
+    border: 0;
+    display: block;
+  }
+
+  .map-embed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .contact-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .map-embed {
+      height: 320px;
+    }
+  }
+</style>

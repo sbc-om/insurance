@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="رؤى الصناعة" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>رؤى الصناعة</h1>
+        <p>أحدث المقالات والتحليلات من التأمين.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <article class="card">
+          <h3>تطور صناعة التأمين في الشرق الأوسط</h3>
+          <p class="muted">16 يوليو 2025 • 3 دقائق قراءة</p>
+          <p>الإصلاحات التنظيمية والتحول الرقمي يعيدان تشكيل السوق.</p>
+        </article>
+        <article class="card">
+          <h3>أفضل ممارسات إدارة المخاطر للشركات</h3>
+          <p class="muted">02 مايو 2025 • 4 دقائق قراءة</p>
+          <p>كيفية تقييم المخاطر وتقليلها في بيئات الأعمال المعقدة.</p>
+        </article>
+        <article class="card">
+          <h3>اتجاهات التأمين الطبي لعام 2026</h3>
+          <p class="muted">10 مارس 2025 • 5 دقائق قراءة</p>
+          <p>أبرز التغييرات وما تعنيه للأسر.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

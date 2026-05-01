@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="الشروط والأحكام" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>الشروط والأحكام</h1>
+        <p>تنطبق هذه الشروط على استخدام هذا الموقع المعلوماتي والمحتوى المنشور فيه.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">قبول الشروط</h2>
+        <p class="muted">باستخدامك هذا الموقع، فأنت توافق على هذه الشروط والأحكام وأي تحديثات تُنشر لاحقاً.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">الأهلية ودقة المعلومات</h2>
+        <p class="muted">هذا الموقع مخصص لمن يبحث عن معلومات عامة حول شركات التأمين وفئات التأمين في سلطنة عمان. وفي حال التواصل معنا، تلتزم بتقديم معلومات صحيحة ومحدثة.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">نطاق الموقع</h2>
+        <p class="muted">يقدم هذا الموقع معلومات عامة عن شركات التأمين وفئات التأمين. وهو لا يصدر وثائق التأمين ولا يؤكد التغطية ولا يحل محل الصياغة الرسمية للبوالص والمستندات الخاصة بشركات التأمين.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">دقة المعلومات</h2>
+        <p class="muted">نسعى إلى إبقاء محتوى الموقع واضحاً ومحدثاً، إلا أن تفاصيل الشركات وتوفر المنتجات والأسعار والاستثناءات والمتطلبات النظامية قد تتغير دون إشعار مسبق.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">الروابط والمحتوى الخارجي</h2>
+        <p class="muted">قد يشير الموقع إلى شركات تأمين أو خدمات أو مواقع خارجية لأغراض تعريفية. ولا نتحمل مسؤولية محتوى الجهات الخارجية أو قراراتها أو شروطها النهائية.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">الاستخدام المحظور</h2>
+        <p class="muted">يُحظر إساءة استخدام الموقع أو محاولة الوصول غير المصرح به أو جمع البيانات آلياً بما يضر سلامة الخدمة.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">الملكية الفكرية</h2>
+        <p class="muted">لا يجوز نسخ نصوص الموقع أو بنيته أو عناصره التصميمية أو إعادة نشرها أو إعادة استخدامها دون إذن، إلا في الحدود التي يجيزها القانون.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">المسؤولية</h2>
+        <p class="muted">يُقدم المحتوى كما هو دون ضمانات، ولا يتحمل التأمين أي أضرار ناتجة عن استخدام الموقع أو الاعتماد على محتواه.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">القانون الواجب التطبيق</h2>
+        <p class="muted">تخضع هذه الشروط لقوانين سلطنة عمان، وتختص محاكمها بالنظر في أي نزاع.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">تواصل معنا</h2>
+        <p class="muted">للاستفسار حول هذا الموقع يمكن استخدام صفحة التواصل.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

@@ -1,0 +1,209 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Travel Insurance - Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container hero-container">
+        <h1>Travel Insurance</h1>
+        <div class="hero-visual">
+          <img src="/images/travel-hero.png" alt="Travel Insurance Protection" class="hero-image" />
+        </div>
+        <p>Protect your journey with comprehensive travel cover.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">Travel worry-free</h2>
+            <p class="muted">From trip cancellations to medical emergencies abroad, our travel insurance keeps you covered wherever you go—whether for business or leisure.</p>
+
+            <h3 style="margin-top:2rem;">What's covered?</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>Medical Emergencies</h4>
+                <ul class="check-list">
+                  <li>Hospital & treatment abroad</li>
+                  <li>Emergency evacuation</li>
+                  <li>Repatriation</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Trip Protection</h4>
+                <ul class="check-list">
+                  <li>Cancellation & delays</li>
+                  <li>Lost baggage</li>
+                  <li>Personal belongings</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Additional Cover</h4>
+                <ul class="check-list">
+                  <li>Personal liability</li>
+                  <li>Legal expenses</li>
+                  <li>Adventure sports (optional)</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Popular destinations</h3>
+            <p class="muted">We offer worldwide coverage including Europe, Asia, Americas, Africa, and GCC countries. Choose single-trip or annual multi-trip plans.</p>
+
+            <h3 style="margin-top:2rem;">Why choose Insurance?</h3>
+            <ul class="feature-list">
+              <li><strong>Instant information:</strong> Review key details quickly</li>
+              <li><strong>Flexible plans:</strong> Single trip or annual cover</li>
+              <li><strong>24/7 assistance:</strong> Emergency helpline worldwide</li>
+              <li><strong>Easy claims:</strong> Simple online process</li>
+            </ul>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>Need more information?</h3>
+              <p>Contact us for general information about this insurance category.</p>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>Need help?</h4>
+              <p style="font-size:0.9rem;">Call or message us</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

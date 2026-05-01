@@ -1,0 +1,230 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="تأمين السيارات" lang="ar">
+  <Header lang="ar" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container hero-container">
+        <h1>تأمين السيارات</h1>
+        <div class="hero-visual">
+          <img src="/images/motor-hero.png" alt="حماية تأمين السيارات" class="hero-image" />
+        </div>
+        <p>تغطية شاملة وضد الغير لمركبتك.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">قُد بثقة</h2>
+            <p class="muted">يقدم هذا القسم معلومات عامة عن الفئات الشائعة في تأمين السيارات، بما في ذلك التغطية الشاملة وضد الغير، لمساعدة الزائر على فهم الخيارات المتداولة في عمان.</p>
+
+            <h3 style="margin-top:2rem;">ما الذي يغطيه التأمين؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>ضد الغير</h4>
+                <ul class="check-list">
+                  <li>المسؤولية تجاه الآخرين</li>
+                  <li>استيفاء المتطلبات القانونية</li>
+                  <li>أسعار معقولة</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>شامل</h4>
+                <ul class="check-list">
+                  <li>سيارتك + ضد الغير</li>
+                  <li>السرقة والحريق</li>
+                  <li>الكوارث الطبيعية</li>
+                  <li>إضافات اختيارية</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">إضافات اختيارية</h3>
+            <ul class="feature-list">
+              <li><strong>إصلاح الوكالة:</strong> صيانة سيارتك لدى الوكلاء المعتمدين</li>
+              <li><strong>المساعدة على الطريق:</strong> دعم على مدار الساعة في أي مكان</li>
+              <li><strong>تغطية دول الخليج:</strong> قيادة آمنة عبر دول مجلس التعاون</li>
+              <li><strong>حوادث شخصية:</strong> حماية إضافية لك</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">عن هذه الفئة</h3>
+            <p class="muted">المعلومات الواردة في هذه الصفحة مقدمة لأغراض تعريفية فقط، وتهدف إلى مساعدة الزائر على فهم السمات العامة المرتبطة عادة بتأمين السيارات.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>هل تحتاج إلى معلومات إضافية؟</h3>
+              <p>تواصل معنا للحصول على معلومات عامة حول هذه الفئة التأمينية.</p>
+              <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>تحتاج مساعدة؟</h4>
+              <p style="font-size:0.9rem;">اتصل أو راسلنا</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .hero-visual {
+      width: 250px;
+      height: 250px;
+    }
+
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-container {
+      gap: 1.5rem;
+    }
+
+    .hero-visual {
+      width: 200px;
+      height: 200px;
+    }
+
+    .page-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .page-hero p {
+      font-size: 1rem;
+    }
+  }
+</style>

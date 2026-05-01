@@ -1,0 +1,297 @@
+---
+const { lang, currentPath } = Astro.props;
+
+// Define all supported languages
+const languages = [
+  { code: "en", name: "English", nativeName: "English" },
+  { code: "ar", name: "Arabic", nativeName: "العربية" },
+  { code: "fa", name: "Persian", nativeName: "فارسی" },
+];
+
+const currentLang = languages.find(l => l.code === lang) || languages[0];
+const otherLanguages = languages.filter(l => l.code !== lang);
+
+// Function to generate path for a given language
+const getPathForLang = (targetLang: string) => {
+  let cleanPath = currentPath.replace(/^\/(ar|fa)/, "") || "/";
+  
+  if (targetLang === "en") {
+    return cleanPath === "/" ? "/" : cleanPath;
+  }
+  
+  return cleanPath === "/" ? `/${targetLang}` : `/${targetLang}${cleanPath}`;
+};
+---
+
+<div class="lang-select" data-lang-switcher>
+  <button 
+    class="lang-trigger" 
+    type="button"
+    role="combobox"
+    aria-expanded="false" 
+    aria-haspopup="listbox"
+    aria-label="Select language"
+  >
+    <svg class="globe-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M2 12h20"></path>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span class="lang-value">{currentLang.nativeName}</span>
+    <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </button>
+  
+  <div class="lang-content" role="listbox" aria-label="Languages">
+    {languages.map((language) => (
+      <a 
+        href={getPathForLang(language.code)} 
+        class={`lang-item ${language.code === lang ? 'selected' : ''}`}
+        role="option"
+        aria-selected={language.code === lang ? "true" : "false"}
+        data-lang={language.code}
+      >
+        <span class="item-text">{language.nativeName}</span>
+        {language.code === lang && (
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        )}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    function initLangSelect() {
+      const selects = document.querySelectorAll('[data-lang-switcher]');
+      
+      selects.forEach(select => {
+        const trigger = select.querySelector('.lang-trigger');
+        const content = select.querySelector('.lang-content');
+        
+        if (!trigger || !content) return;
+        
+        // Remove old listeners by cloning
+        const newTrigger = trigger.cloneNode(true);
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+        
+        newTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const isOpen = this.getAttribute('aria-expanded') === 'true';
+          
+          // Close all other selects
+          document.querySelectorAll('[data-lang-switcher]').forEach(function(s) {
+            if (s !== select) {
+              const t = s.querySelector('.lang-trigger');
+              const c = s.querySelector('.lang-content');
+              if (t) t.setAttribute('aria-expanded', 'false');
+              if (c) c.classList.remove('open');
+            }
+          });
+          
+          // Toggle current
+          this.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          content.classList.toggle('open', !isOpen);
+        });
+      });
+    }
+
+    // Close on click outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('[data-lang-switcher]')) {
+        document.querySelectorAll('[data-lang-switcher]').forEach(function(s) {
+          const t = s.querySelector('.lang-trigger');
+          const c = s.querySelector('.lang-content');
+          if (t) t.setAttribute('aria-expanded', 'false');
+          if (c) c.classList.remove('open');
+        });
+      }
+    });
+
+    // Init immediately
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLangSelect);
+    } else {
+      initLangSelect();
+    }
+    
+    // Re-init on Astro navigation
+    document.addEventListener('astro:page-load', initLangSelect);
+    document.addEventListener('astro:after-swap', initLangSelect);
+  })();
+</script>
+
+<style>
+  .lang-select {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    background-color: transparent;
+    border: 1px solid hsl(214 32% 91%);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 150ms ease;
+    white-space: nowrap;
+    outline: none;
+  }
+
+  .lang-trigger:hover {
+    background-color: hsl(210 40% 98%);
+    border-color: hsl(214 32% 85%);
+  }
+
+  .lang-trigger:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px hsl(222 47% 95%);
+  }
+
+  .lang-trigger[aria-expanded="true"] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px hsl(222 47% 95%);
+  }
+
+  .globe-icon {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  .lang-value {
+    flex: 1;
+    text-align: left;
+  }
+
+  [dir="rtl"] .lang-value {
+    text-align: right;
+  }
+
+  .chevron-icon {
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: transform 200ms ease;
+  }
+
+  .lang-trigger[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Content / Dropdown */
+  .lang-content {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 50;
+    min-width: 140px;
+    width: max-content;
+    padding: 4px;
+    background-color: white;
+    border: 1px solid hsl(214 32% 91%);
+    border-radius: 6px;
+    box-shadow: 
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 150ms ease;
+  }
+
+  [dir="rtl"] .lang-content {
+    left: auto;
+    right: 0;
+  }
+
+  .lang-content.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Items */
+  .lang-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 8px 8px 32px;
+    font-size: 14px;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 100ms ease;
+    position: relative;
+  }
+
+  [dir="rtl"] .lang-item {
+    padding: 8px 32px 8px 8px;
+  }
+
+  .lang-item:hover {
+    background-color: hsl(210 40% 96%);
+  }
+
+  .lang-item:focus {
+    outline: none;
+    background-color: hsl(210 40% 96%);
+  }
+
+  .lang-item.selected {
+    font-weight: 500;
+  }
+
+  .item-text {
+    flex: 1;
+  }
+
+  .check-icon {
+    position: absolute;
+    left: 8px;
+    color: var(--color-primary);
+  }
+
+  [dir="rtl"] .check-icon {
+    left: auto;
+    right: 8px;
+  }
+
+  /* RTL text styling */
+  [data-lang="ar"] .item-text,
+  [data-lang="fa"] .item-text {
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .lang-trigger {
+      height: 32px;
+      padding: 0 8px;
+      gap: 6px;
+    }
+
+    .lang-value {
+      max-width: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .globe-icon {
+      display: none;
+    }
+  }
+</style>

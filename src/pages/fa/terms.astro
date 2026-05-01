@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="شرایط و ضوابط" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>شرایط و ضوابط</h1>
+        <p>این شرایط برای استفاده از این وبسایت اطلاع‌رسانی و محتوای منتشرشده در آن اعمال می‌شوند.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">پذیرش شرایط</h2>
+        <p class="muted">با استفاده از وب‌سایت بیمه، شما با این شرایط و ضوابط و هرگونه به‌روزرسانی‌های منتشر شده موافقت می‌کنید.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">صلاحیت و دقت اطلاعات</h2>
+        <p class="muted">این وبسایت برای کاربرانی است که به دنبال اطلاعات عمومی درباره شرکت‌های بیمه و دسته‌بندی‌های بیمه در عمان هستند. در صورت تماس با ما، متعهد می‌شوید اطلاعات صحیح و به‌روز ارائه دهید.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">دامنه وبسایت</h2>
+        <p class="muted">این وبسایت اطلاعات عمومی درباره شرکت‌های بیمه و دسته‌بندی‌های بیمه ارائه می‌دهد. این وبسایت صادرکننده بیمه‌نامه نیست، پوشش را قطعی نمی‌کند و جایگزین متن رسمی بیمه‌نامه‌ها و اسناد شرکت‌های بیمه نیست.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">دقت اطلاعات</h2>
+        <p class="muted">تلاش می‌شود محتوای وبسایت روشن و به‌روز باشد، اما جزئیات شرکت‌ها، شرایط محصولات، قیمت‌ها، استثنائات و الزامات قانونی ممکن است بدون اطلاع قبلی تغییر کنند.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">لینک‌ها و محتوای شخص ثالث</h2>
+        <p class="muted">ممکن است در این وبسایت به شرکت‌های بیمه، خدمات یا وبسایت‌های ثالث اشاره شود. مسئولیت محتوا، تصمیم‌ها و شرایط نهایی آن‌ها بر عهده همان طرف‌های ثالث است.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">استفاده ممنوع</h2>
+        <p class="muted">سوءاستفاده از سایت یا تلاش برای دسترسی غیرمجاز یا جمع‌آوری خودکار داده‌ها به نحوی که به سلامت خدمات آسیب برساند ممنوع است.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">مالکیت فکری</h2>
+        <p class="muted">متن‌ها، ساختار و اجزای طراحی وبسایت بدون مجوز نباید بازنشر، تکثیر یا استفاده مجدد شوند، مگر در مواردی که قانون به‌طور محدود اجازه داده باشد.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">مسئولیت</h2>
+        <p class="muted">محتوا همان‌طور که هست بدون ضمانت ارائه می‌شود و بیمه هیچ مسئولیتی در قبال خسارات ناشی از استفاده از سایت یا اتکا به محتوای آن ندارد.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">قانون حاکم</h2>
+        <p class="muted">این شرایط تابع قوانین عمان است و دادگاه‌های آن صلاحیت رسیدگی به هرگونه اختلاف را دارند.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">تماس با ما</h2>
+        <p class="muted">برای پرسش درباره این وبسایت از صفحه تماس استفاده کنید.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

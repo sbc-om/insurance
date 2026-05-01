@@ -1,0 +1,169 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="بیمه عمر" lang="fa">
+  <Header lang="fa" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container">
+        <h1>بیمه عمر</h1>
+        <p>امنیت مالی برای عزیزانتان.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">از آنچه بیش از همه مهم است محافظت کنید</h2>
+            <p class="muted">بیمه عمر آینده مالی خانواده شما را تضمین می‌کند. چه بازپرداخت بدهی، چه پوشش هزینه‌های روزمره یا تأمین هزینه تحصیل - عزیزان شما مراقبت خواهند شد.</p>
+
+            <h3 style="margin-top:2rem;">بیمه چه چیزهایی را پوشش می‌دهد؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>بیمه عمر مدت‌دار</h4>
+                <ul class="check-list">
+                  <li>دوره پوشش مشخص</li>
+                  <li>حق بیمه مقرون به صرفه</li>
+                  <li>پرداخت مزایای فوت</li>
+                  <li>شرایط منعطف</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>بیمه عمر تمام‌عمر</h4>
+                <ul class="check-list">
+                  <li>پوشش مادام‌العمر</li>
+                  <li>انباشت ارزش نقدی</li>
+                  <li>بخش سرمایه‌گذاری</li>
+                  <li>برنامه‌ریزی ارث</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>بیماری‌های بحرانی</h4>
+                <ul class="check-list">
+                  <li>مبلغ یکجا هنگام تشخیص</li>
+                  <li>پوشش بیماری‌های اصلی</li>
+                  <li>جایگزینی درآمد</li>
+                  <li>هزینه‌های پزشکی</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">مزایای کلیدی</h3>
+            <ul class="feature-list">
+              <li><strong>حفاظت مالی:</strong> اطمینان از حفظ سبک زندگی خانواده</li>
+              <li><strong>پوشش بدهی:</strong> بازپرداخت وام‌ها، رهن و تعهدات</li>
+              <li><strong>صندوق تحصیل:</strong> تأمین آینده تحصیلی فرزندان</li>
+              <li><strong>مزایای مالیاتی:</strong> مزایای مالیاتی بالقوه بر حق بیمه و پرداخت‌ها</li>
+              <li><strong>آرامش خاطر:</strong> بدانید که عزیزانتان محافظت شده‌اند</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">چرا بیمه را انتخاب کنید؟</h3>
+            <p class="muted">ما به شما کمک می‌کنیم مبلغ پوشش و نوع بیمه‌نامه مناسب را پیدا کنید. پیشنهادات را از شرکت‌های بیمه معتبر مقایسه کنید. فرآیند درخواست ساده با تأیید سریع.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>اطلاعات بیشتری نیاز دارید؟</h3>
+              <p>برای دریافت اطلاعات عمومی درباره این دسته‌بندی با ما تماس بگیرید.</p>
+              <a href="/fa/contact" class="btn btn-primary">تماس با ما</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>کمک می‌خواهید؟</h4>
+              <p style="font-size:0.9rem;">تماس بگیرید یا پیام دهید</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

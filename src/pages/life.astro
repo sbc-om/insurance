@@ -1,0 +1,169 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Life Insurance - Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Life Insurance</h1>
+        <p>Financial security for your loved ones.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">Protect what matters most</h2>
+            <p class="muted">Life insurance ensures your family's financial future. Whether it's paying off debts, covering daily expenses, or funding education—your loved ones will be taken care of.</p>
+
+            <h3 style="margin-top:2rem;">What's covered?</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>Term Life</h4>
+                <ul class="check-list">
+                  <li>Fixed coverage period</li>
+                  <li>Affordable premiums</li>
+                  <li>Death benefit payout</li>
+                  <li>Flexible terms</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Whole Life</h4>
+                <ul class="check-list">
+                  <li>Lifetime coverage</li>
+                  <li>Cash value buildup</li>
+                  <li>Investment component</li>
+                  <li>Estate planning</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Critical Illness</h4>
+                <ul class="check-list">
+                  <li>Lump sum on diagnosis</li>
+                  <li>Major illness cover</li>
+                  <li>Income replacement</li>
+                  <li>Medical expenses</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Key benefits</h3>
+            <ul class="feature-list">
+              <li><strong>Financial protection:</strong> Ensure your family maintains their lifestyle</li>
+              <li><strong>Debt coverage:</strong> Pay off mortgages, loans, and obligations</li>
+              <li><strong>Education fund:</strong> Secure your children's future education</li>
+              <li><strong>Tax benefits:</strong> Potential tax advantages on premiums and payouts</li>
+              <li><strong>Peace of mind:</strong> Know your loved ones are protected</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">Why choose Insurance?</h3>
+            <p class="muted">This section provides general information about common life insurance structures and factors that may be relevant when reviewing available products.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>Need more information?</h3>
+              <p>Contact us for general information about this insurance category.</p>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>Need help?</h4>
+              <p style="font-size:0.9rem;">Call or message us</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

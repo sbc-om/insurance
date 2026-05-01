@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Terms & Conditions" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Terms & Conditions</h1>
+        <p>These terms apply to the use of this informational website and its published content.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">Acceptance of Terms</h2>
+        <p class="muted">By accessing or using the Insurance website, you agree to these Terms & Conditions and any updates we publish from time to time.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Eligibility & Accuracy</h2>
+        <p class="muted">This website is intended for users seeking general information about insurance companies and categories in Oman. If you contact us, you agree to provide accurate and current information.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Website Scope</h2>
+        <p class="muted">This website provides general information about insurers and insurance categories. It does not issue policies, bind coverage, guarantee insurer decisions, or replace official policy wording.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Information Accuracy</h2>
+        <p class="muted">We aim to keep website content clear and current, but insurer details, product availability, prices, exclusions, and regulatory requirements may change without notice.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Third-Party Content and Links</h2>
+        <p class="muted">The website may reference insurers, services, or third-party websites for informational purposes. We are not responsible for third-party content, decisions, or policy terms.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Prohibited Use</h2>
+        <p class="muted">You may not misuse the site, attempt unauthorized access, scrape data, or use automated tools that disrupt service integrity.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Intellectual Property</h2>
+        <p class="muted">Website text, structure, and design elements may not be copied, republished, or reused without permission, except where applicable law allows limited use.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Liability</h2>
+        <p class="muted">Insurance provides information “as is” and is not liable for damages arising from the use of this site or reliance on its content.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Governing Law</h2>
+        <p class="muted">These Terms are governed by the laws of the Sultanate of Oman, and any disputes are subject to its courts.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">Contact</h2>
+        <p class="muted">Questions about this website may be submitted through the contact page.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

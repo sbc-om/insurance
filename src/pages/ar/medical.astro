@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="التأمين الطبي" lang="ar">
+  <Header lang="ar" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container">
+        <h1>التأمين الطبي</h1>
+        <p>تغطية صحية شاملة لك ولعائلتك.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">صحتك تهمنا</h2>
+            <p class="muted">احصل على رعاية صحية عالية الجودة دون القلق بشأن التكاليف. تغطي خطط التأمين الطبي لدينا الاستشفاء والعيادات الخارجية والوصفات الطبية وأكثر—مصممة للأفراد والعائلات.</p>
+
+            <h3 style="margin-top:2rem;">ما الذي يغطيه التأمين؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>العناية بالمرضى الداخليين</h4>
+                <ul class="check-list">
+                  <li>الاستشفاء والجراحة</li>
+                  <li>العناية المركزة والطوارئ</li>
+                  <li>الرعاية بعد العملية</li>
+                  <li>الإقامة والطعام</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>العناية الخارجية</h4>
+                <ul class="check-list">
+                  <li>استشارات الطبيب</li>
+                  <li>زيارات المتخصصين</li>
+                  <li>الفحوصات التشخيصية</li>
+                  <li>الوصفات الطبية</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>مزايا إضافية</h4>
+                <ul class="check-list">
+                  <li>الأمومة والمواليد</li>
+                  <li>الأسنان والنظر</li>
+                  <li>الرعاية الوقائية</li>
+                  <li>الإخلاء الطبي الطارئ</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">خيارات الخطة</h3>
+            <ul class="feature-list">
+              <li><strong>فردي:</strong> تغطية شخصية للأعضاء المفردين</li>
+              <li><strong>عائلي:</strong> يشمل الزوج والأطفال</li>
+              <li><strong>إقليمي:</strong> تغطية في عمان ودول الخليج</li>
+              <li><strong>دولي:</strong> وصول طبي عالمي</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">لماذا تختار التأمين؟</h3>
+            <p class="muted">نتعاون مع شركات التأمين ومقدمي الرعاية الصحية الأعلى تقييمًا. اختر من شبكة واسعة من المستشفيات والعيادات. احصل على علاج بدون نقد في المرافق المعتمدة.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>هل تحتاج إلى معلومات إضافية؟</h3>
+              <p>تواصل معنا للحصول على معلومات عامة حول هذه الفئة التأمينية.</p>
+              <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>تحتاج مساعدة؟</h4>
+              <p style="font-size:0.9rem;">اتصل أو راسلنا</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

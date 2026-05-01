@@ -1,0 +1,209 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="تأمين السفر" lang="ar">
+  <Header lang="ar" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container hero-container">
+        <h1>تأمين السفر</h1>
+        <div class="hero-visual">
+          <img src="/images/travel-hero.png" alt="حماية تأمين السفر" class="hero-image" />
+        </div>
+        <p>احمِ رحلتك بتغطية شاملة للسفر.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">سافر دون قلق</h2>
+            <p class="muted">من إلغاء الرحلة إلى الحالات الطبية الطارئة في الخارج، يوفر لك تأمين السفر الحماية أينما ذهبت—سواء للعمل أو الترفيه.</p>
+
+            <h3 style="margin-top:2rem;">ما الذي يغطيه التأمين؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>الحالات الطبية الطارئة</h4>
+                <ul class="check-list">
+                  <li>المستشفى والعلاج في الخارج</li>
+                  <li>الإخلاء الطارئ</li>
+                  <li>الإعادة إلى الوطن</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>حماية الرحلة</h4>
+                <ul class="check-list">
+                  <li>الإلغاء والتأخير</li>
+                  <li>فقدان الأمتعة</li>
+                  <li>الممتلكات الشخصية</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>تغطية إضافية</h4>
+                <ul class="check-list">
+                  <li>المسؤولية الشخصية</li>
+                  <li>المصاريف القانونية</li>
+                  <li>الرياضات المغامرة (اختياري)</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">وجهات شائعة</h3>
+            <p class="muted">نوفر تغطية عالمية تشمل أوروبا وآسيا والأمريكتين وأفريقيا ودول الخليج. اختر خطة رحلة واحدة أو خطة سنوية متعددة الرحلات.</p>
+
+            <h3 style="margin-top:2rem;">لماذا تختار التأمين؟</h3>
+            <ul class="feature-list">
+              <li><strong>عروض فورية:</strong> احصل على الأسعار في ثوانٍ</li>
+              <li><strong>خطط مرنة:</strong> تغطية رحلة واحدة أو سنوية</li>
+              <li><strong>مساعدة على مدار الساعة:</strong> خط طوارئ عالمي</li>
+              <li><strong>مطالبات سهلة:</strong> عملية بسيطة عبر الإنترنت</li>
+            </ul>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>هل تحتاج إلى معلومات إضافية؟</h3>
+              <p>تواصل معنا للحصول على معلومات عامة حول هذه الفئة التأمينية.</p>
+              <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>تحتاج مساعدة؟</h4>
+              <p style="font-size:0.9rem;">اتصل أو راسلنا</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

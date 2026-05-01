@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="تأمين المنزل" lang="ar">
+  <Header lang="ar" />
+
+  <main dir="rtl">
+    <section class="page-hero">
+      <div class="container">
+        <h1>تأمين المنزل</h1>
+        <p>احمِ منزلك ومحتوياته بتغطية شاملة.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">أمِّن مسكنك</h2>
+            <p class="muted">منزلك هو أكبر استثمار لك. احمه من الحريق والسرقة والكوارث الطبيعية وأكثر من ذلك مع تأمين منزلي مصمم خصيصًا لتغطية ممتلكاتك ومحتوياتك.</p>
+
+            <h3 style="margin-top:2rem;">ما الذي يغطيه التأمين؟</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>هيكل المبنى</h4>
+                <ul class="check-list">
+                  <li>أضرار الحريق والانفجار</li>
+                  <li>الكوارث الطبيعية</li>
+                  <li>أضرار المياه</li>
+                  <li>الإصلاحات الهيكلية</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>المحتويات والممتلكات</h4>
+                <ul class="check-list">
+                  <li>الأثاث والأجهزة</li>
+                  <li>الإلكترونيات والأشياء الثمينة</li>
+                  <li>السرقة واللصوصية</li>
+                  <li>تكلفة الاستبدال</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>حماية المسؤولية</h4>
+                <ul class="check-list">
+                  <li>إصابة الغير</li>
+                  <li>أضرار ممتلكات الآخرين</li>
+                  <li>المصاريف القانونية</li>
+                  <li>تغطية العمال المنزليين</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">إضافات اختيارية</h3>
+            <ul class="feature-list">
+              <li><strong>تغطية شاملة:</strong> حماية الأشياء الثمينة داخل وخارج منزلك</li>
+              <li><strong>سكن بديل:</strong> إقامة مؤقتة إذا أصبح منزلك غير صالح للسكن</li>
+              <li><strong>الحديقة والمساحات الخارجية:</strong> تغطية الهياكل الخارجية والمناظر الطبيعية</li>
+              <li><strong>الزجاج والأدوات الصحية:</strong> النوافذ والمرايا والتجهيزات</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">لماذا تختار التأمين؟</h3>
+            <p class="muted">قارن السياسات من كبرى شركات التأمين. احصل على عروض أسعار مخصصة بناءً على قيمة منزلك وموقعه. خطط سداد مرنة متاحة.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>هل تحتاج إلى معلومات إضافية؟</h3>
+              <p>تواصل معنا للحصول على معلومات عامة حول هذه الفئة التأمينية.</p>
+              <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>تحتاج مساعدة؟</h4>
+              <p style="font-size:0.9rem;">اتصل أو راسلنا</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

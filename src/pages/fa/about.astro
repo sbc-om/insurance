@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="درباره بیمه" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>درباره بیمه</h1>
+        <p>یک وبسایت چندزبانه برای معرفی شرکت‌های بیمه و دسته‌بندی‌های بیمه در عمان.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">این وبسایت چیست</h2>
+          <p class="muted">بیمه یک وبسایت اطلاع‌رسانی است که برای معرفی شرکت‌های بیمه، دسته‌بندی‌های بیمه و اطلاعات عمومی مربوط به بازار عمان به زبان‌های فارسی، عربی و انگلیسی طراحی شده است.</p>
+          <div class="badge-list" style="margin-top:1rem;">
+            <span class="badge">چندزبانه</span>
+            <span class="badge">اطلاع‌رسانی</span>
+            <span class="badge">عمان</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>هدف</h3>
+          <p>هدف این وبسایت کمک به کاربر برای مرور شرکت‌های بیمه و شناخت دسته‌بندی‌های اصلی بیمه‌ای است که در سایت معرفی شده‌اند.</p>
+          <h3 style="margin-top:1rem;">جایگاه</h3>
+          <p>این وبسایت با لحن بی‌طرفانه تهیه شده و صادرکننده بیمه‌نامه، تضمین‌کننده پوشش یا جایگزین اسناد رسمی شرکت‌های بیمه نیست.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content" id="values">
+      <div class="container">
+        <h2 class="section-title-alt">اصول محتوایی</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>وضوح</h3>
+            <p>اطلاعات بیمه‌ای به‌صورت منظم و قابل مرور ارائه می‌شوند.</p>
+          </div>
+          <div class="card">
+            <h3>بی‌طرفی</h3>
+            <p>محتوا برای معرفی عمومی تهیه شده و لحن تبلیغاتی یا مشاوره‌ای ندارد.</p>
+          </div>
+          <div class="card">
+            <h3>شفافیت</h3>
+            <p>کاربران باید برای شرایط، استثنائات و پوشش نهایی به اسناد رسمی هر شرکت بیمه مراجعه کنند.</p>
+          </div>
+          <div class="card">
+            <h3>دسترسی‌پذیری</h3>
+            <p>ساختار سایت برای استفاده در چند زبان با ارائه‌ای یکدست آماده شده است.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>چه چیزهایی در سایت هست</h3>
+          <p class="muted">معرفی کلی بیمه‌های خودرو، درمان، عمر، مسافرت، منزل و بیمه‌های شرکتی به همراه صفحه‌های معرفی شرکت‌ها.</p>
+        </div>
+        <div class="card">
+          <h3>برای چه کسانی</h3>
+          <p class="muted">برای افراد، خانواده‌ها و کسب‌وکارهایی که به دنبال یک نمای کلی ساختارمند از بازار بیمه عمان هستند.</p>
+        </div>
+        <div class="card">
+          <h3>نکته مهم</h3>
+          <p class="muted">قیمت، پذیرش ریسک، پوشش نهایی و رسیدگی به خسارت بر عهده شرکت بیمه مربوطه است.</p>
+        </div>
+        <div class="card">
+          <h3>شرکت</h3>
+          <p class="muted">این وبسایت به‌عنوان یک پلتفرم اطلاع‌رسانی عمومی برای اطلاعات بیمه در عمان ارائه می‌شود.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

@@ -1,0 +1,134 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="اتصل بنا" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>اتصل بنا</h1>
+        <p>تواصل معنا للحصول على معلومات عامة حول الشركات وفئات التأمين المعروضة في هذا الموقع.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">معلومات التواصل</h2>
+          <p class="muted">استخدم المعلومات التالية للاستفسارات العامة المتعلقة بالموقع.</p>
+          <div class="contact-stack" style="margin-top:1rem;">
+            <div class="card contact-card">
+              <h3>الموقع</h3>
+              <p>التأمين في عمان</p>
+            </div>
+            <div class="card contact-card">
+              <h3>التواصل</h3>
+              <p>يمكن استخدام نموذج التواصل في هذه الصفحة للاستفسارات العامة.</p>
+            </div>
+            <div class="card contact-card">
+              <h3>الموقع</h3>
+              <p>مسقط، عمان</p>
+            </div>
+            <div class="card contact-card">
+              <h3>أوقات المتابعة</h3>
+              <p>تتم مراجعة الاستفسارات العامة خلال ساعات العمل المعتادة.</p>
+            </div>
+          </div>
+        </div>
+        <form class="card form">
+          <h2 class="section-title-alt">إرسال استفسار</h2>
+          <p class="muted">يجب أن تقتصر الرسائل المرسلة من هذه الصفحة على طلبات المعلومات العامة المتعلقة بمحتوى الموقع.</p>
+          <input type="text" placeholder="الاسم الكامل" aria-label="الاسم الكامل" />
+          <input type="tel" placeholder="رقم الهاتف" aria-label="رقم الهاتف" />
+          <input type="text" placeholder="الموضوع" aria-label="الموضوع" />
+          <textarea placeholder="رسالتك" aria-label="الرسالة"></textarea>
+          <button type="submit" class="btn btn-primary">إرسال الاستفسار</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container card-grid">
+        <div class="card">
+          <h3>نطاق التواصل</h3>
+          <p class="muted">هذه الصفحة مخصصة للاستفسارات العامة حول الموقع والمحتوى المنشور فيه.</p>
+        </div>
+        <div class="card">
+          <h3>الوثائق والمطالبات</h3>
+          <p class="muted">إصدار الوثائق وقرارات التغطية وإجراءات المطالبات تتم عبر القنوات الخاصة بشركة التأمين المعنية.</p>
+        </div>
+        <div class="card">
+          <h3>اللغات</h3>
+          <p class="muted">يتم تقديم محتوى الموقع باللغات العربية والإنجليزية والفارسية.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" dir="rtl" aria-label="خريطة موقع التأمين">
+      <div class="container">
+        <div class="map-embed">
+          <iframe
+            title="موقع التأمين"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=58.357392%2C23.5819%2C58.367392%2C23.5919&layer=mapnik&marker=23.5869%2C58.362392"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  .map-section {
+    padding: 0 0 4rem;
+  }
+
+  .map-embed {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    height: 380px;
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: calc(100% + 30px);
+    border: 0;
+    display: block;
+  }
+
+  .map-embed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .contact-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .map-embed {
+      height: 320px;
+    }
+  }
+</style>

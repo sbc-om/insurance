@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import i18next from "../lib/i18n";
+
+await i18next.changeLanguage("en");
+---
+
+<Layout title="Medical Insurance - Insurance" lang="en">
+  <Header lang="en" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Medical Insurance</h1>
+        <p>Comprehensive health cover for you and your family.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <h2 class="section-title-alt">Your health matters</h2>
+            <p class="muted">Access quality healthcare without worrying about costs. Our medical insurance plans cover hospitalization, outpatient care, prescriptions, and more—tailored for individuals and families.</p>
+
+            <h3 style="margin-top:2rem;">What's covered?</h3>
+            <div class="card-grid" style="margin-top:1rem;">
+              <div class="card">
+                <h4>Inpatient Care</h4>
+                <ul class="check-list">
+                  <li>Hospitalization & surgery</li>
+                  <li>ICU & emergency room</li>
+                  <li>Post-operative care</li>
+                  <li>Room & board</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Outpatient Care</h4>
+                <ul class="check-list">
+                  <li>Doctor consultations</li>
+                  <li>Specialist visits</li>
+                  <li>Diagnostic tests</li>
+                  <li>Prescriptions</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4>Additional Benefits</h4>
+                <ul class="check-list">
+                  <li>Maternity & newborn</li>
+                  <li>Dental & optical</li>
+                  <li>Preventive care</li>
+                  <li>Emergency evacuation</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Plan options</h3>
+            <ul class="feature-list">
+              <li><strong>Individual:</strong> Personal coverage for single members</li>
+              <li><strong>Family:</strong> Spouse and children included</li>
+              <li><strong>Regional:</strong> Coverage in Oman and GCC</li>
+              <li><strong>International:</strong> Worldwide medical access</li>
+            </ul>
+
+            <h3 style="margin-top:2rem;">Why choose Insurance?</h3>
+            <p class="muted">We partner with top-rated insurers and healthcare providers. Choose from a wide network of hospitals and clinics. Get cashless treatment at approved facilities.</p>
+          </div>
+
+          <aside class="sidebar">
+            <div class="card cta-card">
+              <h3>Need more information?</h3>
+              <p>Contact us for general information about this insurance category.</p>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <h4>Need help?</h4>
+              <p style="font-size:0.9rem;">Call or message us</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .main-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+</style>

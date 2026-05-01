@@ -1,0 +1,34 @@
+{
+  "site": {
+    "title": "Insurance",
+    "description": "A complete and professional multilingual website for introducing insurance companies and their products in Oman."
+  },
+  "nav": {
+    "home": "Home",
+    "insurance": "Insurance",
+    "motor": "Motor",
+    "travel": "Travel",
+    "homeIns": "Home",
+    "medical": "Medical",
+    "life": "Life",
+    "about": "About",
+    "support": "Support",
+    "buyNow": "Explore",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026",
+    "company": "Insurance in Oman",
+    "rights": "All Rights Reserved",
+    "disclaimer": "Disclaimer: This website provides general information about insurance companies and products in Oman. Coverage, benefits, and policy terms are determined by each insurer.",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "phone": ""
+  },
+  "cta": {
+    "explore": "Explore",
+    "learnMore": "Learn More",
+    "getQuote": "Learn More",
+    "contactUs": "Contact Us"
+  }
+}

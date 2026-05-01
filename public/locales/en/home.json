@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "tagline": "Insurance Companies Across Oman",
+    "subtitle": "Insurance in Oman",
+    "since": "Professional Multilingual Platform"
+  },
+  "intro": {
+    "title": "Committed to Your Peace of Mind",
+    "description": "This website is a complete and professional multilingual platform designed to introduce insurance companies and their products in Oman. It presents insurance providers and their services in a clear and organized way and helps visitors review available information across motor, medical, life, travel, home, and business insurance categories."
+  },
+  "services": {
+    "title": "Insurance Solutions Tailored for Life, Business & Beyond",
+    "description": "The platform provides a detailed introduction to insurance products available in Oman, covering personal and corporate needs through a professional multilingual experience. Visitors can review insurers, compare product categories, understand coverage areas, and learn about services relevant to daily life, family protection, travel, healthcare, property, and commercial operations.",
+    "personal": {
+      "title": "Personal",
+      "items": ["Life Insurance", "Medical", "Car", "Home", "Travel"]
+    },
+    "corporate": {
+      "title": "Corporate",
+      "items": ["Property & Casualty", "Group Medical & Life", "Marine", "Liability & Risk", "Employee Benefits"]
+    },
+    "advisory": {
+      "title": "Advisory",
+      "items": ["Custom Plans", "Insurance Audit", "Risk Assessment", "International Insurance Liaison", "Claims Advocacy"]
+    }
+  },
+  "alliances": {
+    "title": "Strategic Alliances"
+  },
+  "values": {
+    "title": "Insurance Is More Than a Policy, It's a Commitment",
+    "description": "Our goal is to present insurance information in a professional, neutral, and accessible way. Every section is written to make insurance companies and their products easier to understand through a clear multilingual experience."
+  },
+  "clients": {
+    "title": "Insurance Network Overview",
+    "subtitle": "Partnerships Built on Trust"
+  },
+  "insights": {
+    "title": "Industry Insights"
+  }
+}
