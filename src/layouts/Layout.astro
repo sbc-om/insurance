@@ -23,7 +23,10 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1a365d" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/pwa/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
     <title>{pageTitle}</title>
@@ -216,6 +219,14 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
           }
         });
       })();
+    </script>
+
+    <script>
+      import { registerSW } from 'virtual:pwa-register';
+
+      registerSW({
+		immediate: true,
+	  });
     </script>
   </body>
 </html>
