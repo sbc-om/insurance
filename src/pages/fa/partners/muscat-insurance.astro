@@ -5,55 +5,52 @@ import Footer from "../../../components/Footer.astro";
 const lang = "fa";
 ---
 
-<Layout title="بیمه مسقط - شرکای ما | بیمه" lang={lang}>
+<Layout title="بیمه مسقط | بیمه" lang={lang}>
   <Header lang={lang} />
   
-  <main class="partner-page">
-    <!-- Hero Section -->
-    <section class="hero">
+  <main>
+    <section class="partner-hero">
       <div class="container">
-        <div class="hero-content">
-          <img src="/images/alliances/muscat-insurance.png" alt="بیمه مسقط" class="partner-logo" />
-          <h1>بیمه مسقط</h1>
-          <p class="tagline">شریک مطمئن در حفاظت از آینده شما از سال ۱۹۸۴</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-      <div class="container">
-        <h2>درباره شرکت</h2>
-        <div class="about-content">
-          <p>شرکت بیمه مسقط یکی از شرکت‌های پیشرو در صنعت بیمه سلطنت عمان است که در سال ۱۹۸۴ تأسیس شده و مجموعه‌ای جامع از راه‌حل‌های بیمه‌ای را برای افراد و شرکت‌ها ارائه می‌دهد. این شرکت با تجربه گسترده و شهرت برجسته خود در ارائه خدمات بیمه‌ای قابل اعتماد با قیمت‌های رقابتی شناخته شده است.</p>
-          <p>این شرکت تحت مجوز سازمان بازار سرمایه سلطنت عمان فعالیت می‌کند و به بالاترین استانداردهای شفافیت و صداقت در تمام معاملات خود پایبند است. شرکت دارای شبکه گسترده‌ای از شعب و مراکز خدمات در سراسر کشور است.</p>
-          
-          <div class="stats">
-            <div class="stat">
-              <span class="number">+۴۰</span>
-              <span class="label">سال تجربه</span>
-            </div>
-            <div class="stat">
-              <span class="number">+۱۰۰,۰۰۰</span>
-              <span class="label">مشتری راضی</span>
-            </div>
-            <div class="stat">
-              <span class="number">+۵۰</span>
-              <span class="label">شعبه و مرکز خدمات</span>
-            </div>
+        <div class="partner-header">
+          <img src="/images/alliances/muscat-insurance.png" alt="Muscat Insurance Logo" class="partner-logo" />
+          <div class="partner-intro">
+            <h1>بیمه مسقط</h1>
+            <p class="tagline">شریک مطمئن در حفاظت از آینده شما از سال ۱۹۸۴</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products">
+    <section class="partner-about">
       <div class="container">
-        <h2>محصولات و خدمات</h2>
+        <h2>درباره بیمه مسقط</h2>
+        <p>شرکت بیمه مسقط یکی از شرکت‌های پیشرو در صنعت بیمه سلطنت عمان است که در سال ۱۹۸۴ تأسیس شده و مجموعه‌ای جامع از راه‌حل‌های بیمه‌ای را برای افراد و شرکت‌ها ارائه می‌دهد.</p>
+        <p>این شرکت تحت مجوز سازمان بازار سرمایه سلطنت عمان فعالیت می‌کند و به بالاترین استانداردهای شفافیت و صداقت در تمام معاملات خود پایبند است. شرکت دارای شبکه گسترده‌ای از شعب و مراکز خدمات در سراسر کشور است.</p>
         
-        <div class="product-grid">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">+۴۰</span>
+            <span class="stat-label">سال تجربه</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">+۱۰۰K</span>
+            <span class="stat-label">مشتری راضی</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">+۵۰</span>
+            <span class="stat-label">شعبه و مرکز خدمات</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partner-products">
+      <div class="container">
+        <h2>محصولات بیمه‌ای</h2>
+        
+        <div class="products-grid">
           <div class="product-card">
-            <div class="icon">🚗</div>
+            <div class="product-icon">🚗</div>
             <h3>بیمه خودرو</h3>
             <ul>
               <li>بیمه جامع خودرو</li>
@@ -61,12 +58,12 @@ const lang = "fa";
               <li>بیمه خودروهای لوکس</li>
               <li>بیمه ناوگان خودرویی</li>
               <li>خدمات کمک جاده‌ای ۲۴ ساعته</li>
-              <li>پوشش حوادث شخصی راننده و سرنشینان</li>
+              <li>پوشش حوادث شخصی راننده</li>
             </ul>
           </div>
 
           <div class="product-card">
-            <div class="icon">🏥</div>
+            <div class="product-icon">🏥</div>
             <h3>بیمه درمان</h3>
             <ul>
               <li>طرح‌های بیمه درمانی فردی</li>
@@ -74,12 +71,12 @@ const lang = "fa";
               <li>بیمه درمان شرکتی</li>
               <li>پوشش درمان داخل و خارج عمان</li>
               <li>پوشش بیماری‌های مزمن</li>
-              <li>برنامه‌های دندانپزشکی و چشم‌پزشکی</li>
+              <li>برنامه‌های دندانپزشکی و چشم</li>
             </ul>
           </div>
 
           <div class="product-card">
-            <div class="icon">🏠</div>
+            <div class="product-icon">🏠</div>
             <h3>بیمه اموال</h3>
             <ul>
               <li>بیمه منزل و ساختمان</li>
@@ -87,12 +84,12 @@ const lang = "fa";
               <li>بیمه آتش‌سوزی</li>
               <li>بیمه سرقت</li>
               <li>بیمه بلایای طبیعی</li>
-              <li>بیمه مسئولیت در برابر اشخاص ثالث</li>
+              <li>بیمه مسئولیت اشخاص ثالث</li>
             </ul>
           </div>
 
           <div class="product-card">
-            <div class="icon">✈️</div>
+            <div class="product-icon">✈️</div>
             <h3>بیمه سفر</h3>
             <ul>
               <li>بیمه سفر فردی</li>
@@ -105,7 +102,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">💼</div>
+            <div class="product-icon">🏢</div>
             <h3>بیمه کسب‌وکار</h3>
             <ul>
               <li>بیمه مسئولیت حرفه‌ای</li>
@@ -118,7 +115,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">🛡️</div>
+            <div class="product-icon">🛡️</div>
             <h3>بیمه زندگی</h3>
             <ul>
               <li>بیمه عمر فردی</li>
@@ -133,41 +130,39 @@ const lang = "fa";
       </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section class="why-choose">
+    <section class="partner-features">
       <div class="container">
-        <h2>چرا بیمه مسقط؟</h2>
-        <div class="features">
+        <h2>چرا بیمه مسقط را انتخاب کنید؟</h2>
+        <div class="features-grid">
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>تجربه طولانی</h3>
+            <span class="feature-icon">✓</span>
+            <h4>تجربه طولانی</h4>
             <p>بیش از ۴۰ سال تجربه در بازار بیمه عمان</p>
           </div>
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>تسویه سریع</h3>
+            <span class="feature-icon">✓</span>
+            <h4>تسویه سریع</h4>
             <p>پردازش خسارت با سرعت و کارایی بالا</p>
           </div>
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>قیمت‌های رقابتی</h3>
-            <p>راه‌حل‌های بیمه‌ای با قیمت مناسب برای همه بودجه‌ها</p>
+            <span class="feature-icon">✓</span>
+            <h4>قیمت‌های رقابتی</h4>
+            <p>راه‌حل‌های بیمه‌ای با قیمت مناسب برای همه</p>
           </div>
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>پشتیبانی ۲۴/۷</h3>
+            <span class="feature-icon">✓</span>
+            <h4>پشتیبانی ۲۴/۷</h4>
             <p>تیم خدمات مشتری در دسترس شبانه‌روزی</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
+    <section class="partner-cta">
       <div class="container">
-        <h2>استعلام قیمت رایگان بگیرید</h2>
+        <h2>اطلاعات بیشتر درباره بیمه مسقط</h2>
         <p>برای دریافت اطلاعات عمومی درباره این شرکت با ما تماس بگیرید</p>
-        <a href="/fa/contact" class="btn-primary">تماس با ما</a>
+        <a href="/fa/contact" class="cta-button">تماس برای اطلاعات</a>
       </div>
     </section>
   </main>
@@ -176,22 +171,17 @@ const lang = "fa";
 </Layout>
 
 <style>
-  .partner-page {
-    padding-top: 80px;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  /* Hero */
-  .hero {
+  .partner-hero {
     background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
     color: white;
     padding: 4rem 0;
-    text-align: center;
+  }
+
+  .partner-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
   .partner-logo {
@@ -199,12 +189,11 @@ const lang = "fa";
     height: 150px;
     object-fit: contain;
     background: white;
-    border-radius: 20px;
+    border-radius: 1rem;
     padding: 1rem;
-    margin-bottom: 1.5rem;
   }
 
-  .hero h1 {
+  .partner-intro h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
@@ -214,86 +203,86 @@ const lang = "fa";
     opacity: 0.9;
   }
 
-  /* About */
-  .about {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
     padding: 4rem 0;
-    background: #f8fafc;
   }
 
-  .about h2 {
-    text-align: center;
+  h2 {
     font-size: 2rem;
-    margin-bottom: 2rem;
     color: #1a365d;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
 
-  .about-content p {
+  .partner-about p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #4a5568;
-    margin-bottom: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    text-align: center;
   }
 
-  .stats {
+  .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
     text-align: center;
   }
 
-  .stat .number {
+  .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: #2d5a87;
   }
 
-  .stat .label {
-    color: #718096;
+  .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
   }
 
-  /* Products */
-  .products {
-    padding: 4rem 0;
-  }
-
-  .products h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: #1a365d;
-  }
-
-  .product-grid {
+  .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
   }
 
   .product-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   }
 
-  .product-card .icon {
-    font-size: 2.5rem;
+  .product-icon {
+    font-size: 3rem;
     margin-bottom: 1rem;
   }
 
   .product-card h3 {
-    font-size: 1.25rem;
     color: #1a365d;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   .product-card ul {
@@ -304,32 +293,28 @@ const lang = "fa";
   .product-card li {
     padding: 0.5rem 0;
     color: #4a5568;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
     position: relative;
     padding-right: 1.5rem;
   }
 
-  .product-card li::before {
+  .product-card li:before {
     content: "•";
-    color: #2d5a87;
+    color: #3182ce;
     position: absolute;
     right: 0;
+    font-weight: bold;
   }
 
-  /* Why Choose */
-  .why-choose {
-    padding: 4rem 0;
-    background: #f8fafc;
+  .product-card li:last-child {
+    border-bottom: none;
   }
 
-  .why-choose h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: #1a365d;
+  .partner-products {
+    background: #f7fafc;
   }
 
-  .features {
+  .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -340,20 +325,20 @@ const lang = "fa";
     padding: 2rem;
   }
 
-  .feature .icon {
+  .feature-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: #2d5a87;
+    width: 60px;
+    height: 60px;
+    background: #48bb78;
     color: white;
     border-radius: 50%;
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  .feature h3 {
+  .feature h4 {
     color: #1a365d;
     margin-bottom: 0.5rem;
   }
@@ -362,51 +347,50 @@ const lang = "fa";
     color: #718096;
   }
 
-  /* CTA */
-  .cta {
-    padding: 4rem 0;
+  .partner-cta {
     background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
     color: white;
     text-align: center;
   }
 
-  .cta h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .partner-cta h2 {
+    color: white;
   }
 
-  .cta p {
+  .partner-cta p {
     font-size: 1.1rem;
-    opacity: 0.9;
     margin-bottom: 2rem;
+    opacity: 0.9;
   }
 
-  .btn-primary {
+  .cta-button {
     display: inline-block;
-    background: white;
-    color: #1a365d;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    font-weight: 600;
+    background: #48bb78;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
     text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
 
-  .btn-primary:hover {
+  .cta-button:hover {
+    background: #38a169;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
+    .partner-header {
+      flex-direction: column;
+      text-align: center;
     }
 
-    .stats {
-      grid-template-columns: 1fr;
+    .partner-intro h1 {
+      font-size: 1.75rem;
     }
 
-    .product-grid {
+    .products-grid {
       grid-template-columns: 1fr;
     }
   }

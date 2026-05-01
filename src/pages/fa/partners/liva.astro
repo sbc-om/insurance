@@ -8,49 +8,49 @@ const lang = "fa";
 <Layout title="بیمه لیوا | بیمه" lang={lang}>
   <Header lang={lang} />
   
-  <main class="partner-page">
-    <section class="hero">
+  <main dir="rtl">
+    <section class="partner-hero">
       <div class="container">
-        <div class="hero-content">
-          <img src="/images/alliances/liva.png" alt="Liva Insurance" class="partner-logo" />
-          <h1>بیمه لیوا</h1>
-          <p class="tagline">شریک مطمئن شما در بیمه جامع</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="about">
-      <div class="container">
-        <h2>درباره بیمه لیوا</h2>
-        <div class="about-content">
-          <p>بیمه لیوا یکی از شرکت‌های پیشرو در صنعت بیمه منطقه است که راه‌حل‌های بیمه‌ای جامع و یکپارچه برای پوشش تمام جنبه‌های زندگی ارائه می‌دهد. این شرکت تجربه عمیق را با نوآوری مستمر ترکیب می‌کند تا بهترین خدمات را به مشتریان ارائه دهد.</p>
-          <p>با تعهد به بالاترین استانداردهای خدمات و شفافیت، لیوا به طور مداوم محصولات خود را توسعه می‌دهد تا نیازهای متغیر مشتریان را برآورده کند. این شرکت دارای شبکه گسترده‌ای از شرکا و ارائه‌دهندگان خدمات است.</p>
-          
-          <div class="stats">
-            <div class="stat">
-              <span class="number">+۲۵</span>
-              <span class="label">سال تجربه</span>
-            </div>
-            <div class="stat">
-              <span class="number">+۲۰۰,۰۰۰</span>
-              <span class="label">مشتری</span>
-            </div>
-            <div class="stat">
-              <span class="number">+۵۰۰</span>
-              <span class="label">شریک و توزیع‌کننده</span>
-            </div>
+        <div class="partner-header">
+          <img src="/images/alliances/liva.png" alt="نشان بیمه لیوا" class="partner-logo" />
+          <div class="partner-intro">
+            <h1>بیمه لیوا</h1>
+            <p class="tagline">شریک مطمئن شما در بیمه جامع</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="products">
+    <section class="partner-about">
       <div class="container">
-        <h2>محصولات و خدمات</h2>
+        <h2>درباره بیمه لیوا</h2>
+        <p>بیمه لیوا یکی از شرکت‌های برجسته بیمه در منطقه خلیج فارس است که پیش‌تر با نام شرکت ملی بیمه بحرین شناخته می‌شد. این مجموعه با پشتوانه چند دهه تجربه، به یک شرکت بیمه مدرن و مشتری‌محور تبدیل شده و راهکارهای نوآورانه‌ای در خطوط مختلف بیمه ارائه می‌دهد.</p>
+        <p>لیوا در چندین کشور شورای همکاری خلیج فارس فعالیت دارد و به دلیل توان مالی، پلتفرم‌های دیجیتال نوآورانه و تمرکز بر رضایت مشتریان شناخته می‌شود. این شرکت با سهام‌داران قدرتمند و روابط مستحکم با بیمه‌گران اتکایی بین‌المللی، پوشش‌های قابل اعتماد و حرفه‌ای ارائه می‌کند.</p>
         
-        <div class="product-grid">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">+۵۰</span>
+            <span class="stat-label">سال سابقه</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">۵</span>
+            <span class="stat-label">کشور حوزه خلیج</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">A</span>
+            <span class="stat-label">رتبه اعتباری</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partner-products">
+      <div class="container">
+        <h2>محصولات بیمه‌ای</h2>
+        
+        <div class="products-grid">
           <div class="product-card">
-            <div class="icon">🚗</div>
+            <div class="product-icon">🚗</div>
             <h3>بیمه خودرو</h3>
             <ul>
               <li>پوشش جامع</li>
@@ -63,7 +63,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">🏥</div>
+            <div class="product-icon">🏥</div>
             <h3>بیمه درمان</h3>
             <ul>
               <li>طرح‌های فردی و خانوادگی</li>
@@ -76,7 +76,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">🏠</div>
+            <div class="product-icon">🏠</div>
             <h3>بیمه منزل</h3>
             <ul>
               <li>بیمه ساختمان و محتویات</li>
@@ -89,7 +89,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">💼</div>
+            <div class="product-icon">💼</div>
             <h3>بیمه کسب‌وکار</h3>
             <ul>
               <li>بیمه اموال تجاری</li>
@@ -102,7 +102,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">🛡️</div>
+            <div class="product-icon">🛡️</div>
             <h3>بیمه زندگی</h3>
             <ul>
               <li>بیمه عمر زمان‌دار</li>
@@ -115,7 +115,7 @@ const lang = "fa";
           </div>
 
           <div class="product-card">
-            <div class="icon">✈️</div>
+            <div class="product-icon">✈️</div>
             <h3>بیمه سفر</h3>
             <ul>
               <li>بیمه سفر یک‌باره</li>
@@ -130,39 +130,39 @@ const lang = "fa";
       </div>
     </section>
 
-    <section class="why-choose">
+    <section class="partner-features">
       <div class="container">
         <h2>چرا بیمه لیوا را انتخاب کنید؟</h2>
-        <div class="features">
+        <div class="features-grid">
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>پوشش جامع</h3>
+            <span class="feature-icon">✓</span>
+            <h4>رویکرد دیجیتال‌محور</h4>
+            <p>اپلیکیشن و پرتال آنلاین برای مدیریت ساده و سریع بیمه‌نامه‌ها</p>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+            <h4>خسارت سریع</h4>
+            <p>رسیدگی شفاف و سریع به خسارت‌ها همراه با پیگیری مرحله‌ای</p>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">✓</span>
+            <h4>پوشش منطقه‌ای</h4>
             <p>راه‌حل‌های یکپارچه برای تمام نیازهای بیمه‌ای شما</p>
           </div>
           <div class="feature">
-            <span class="icon">✓</span>
-            <h3>شبکه گسترده</h3>
-            <p>هزاران بیمارستان و تعمیرگاه تأیید شده</p>
-          </div>
-          <div class="feature">
-            <span class="icon">✓</span>
-            <h3>خسارت آسان</h3>
-            <p>پردازش ساده و سریع</p>
-          </div>
-          <div class="feature">
-            <span class="icon">✓</span>
-            <h3>خدمات استثنایی</h3>
-            <p>تیم اختصاصی در خدمت شما</p>
+            <span class="feature-icon">✓</span>
+            <h4>مشاوره تخصصی</h4>
+            <p>پشتیبانی حرفه‌ای و شخصی‌سازی‌شده برای انتخاب بهترین پوشش</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta">
+    <section class="partner-cta">
       <div class="container">
-        <h2>آنچه مهم است را با لیوا حفاظت کنید</h2>
-        <p>برای استعلام قیمت سفارشی تماس بگیرید</p>
-        <a href="/fa/contact" class="btn-primary">استعلام قیمت</a>
+        <h2>درباره بیمه لیوا بیشتر بدانید</h2>
+        <p>برای دریافت اطلاعات عمومی و بررسی پوشش‌های بیمه لیوا با ما در تماس باشید.</p>
+        <a href="/fa/contact" class="cta-button">دریافت اطلاعات</a>
       </div>
     </section>
   </main>
@@ -171,39 +171,227 @@ const lang = "fa";
 </Layout>
 
 <style>
-  .partner-page { padding-top: 80px; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-  .hero { background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%); color: white; padding: 4rem 0; text-align: center; }
-  .partner-logo { width: 150px; height: 150px; object-fit: contain; background: white; border-radius: 20px; padding: 1rem; margin-bottom: 1.5rem; }
-  .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-  .tagline { font-size: 1.25rem; opacity: 0.9; }
-  .about { padding: 4rem 0; background: #f8fafc; }
-  .about h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #1a365d; }
-  .about-content p { font-size: 1.1rem; line-height: 1.8; color: #4a5568; margin-bottom: 1.5rem; }
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center; }
-  .stat .number { display: block; font-size: 2.5rem; font-weight: 700; color: #2d5a87; }
-  .stat .label { color: #718096; }
-  .products { padding: 4rem 0; }
-  .products h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a365d; }
-  .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .product-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: transform 0.3s, box-shadow 0.3s; }
-  .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-  .product-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .product-card h3 { font-size: 1.25rem; color: #1a365d; margin-bottom: 1rem; }
-  .product-card ul { list-style: none; padding: 0; }
-  .product-card li { padding: 0.5rem 0; color: #4a5568; border-bottom: 1px solid #f1f5f9; position: relative; padding-right: 1.5rem; }
-  .product-card li::before { content: "•"; color: #2d5a87; position: absolute; right: 0; }
-  .why-choose { padding: 4rem 0; background: #f8fafc; }
-  .why-choose h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a365d; }
-  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-  .feature { text-align: center; padding: 2rem; }
-  .feature .icon { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: #2d5a87; color: white; border-radius: 50%; font-size: 1.5rem; margin-bottom: 1rem; }
-  .feature h3 { color: #1a365d; margin-bottom: 0.5rem; }
-  .feature p { color: #718096; }
-  .cta { padding: 4rem 0; background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%); color: white; text-align: center; }
-  .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
-  .cta p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
-  .btn-primary { display: inline-block; background: white; color: #1a365d; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-  @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .stats { grid-template-columns: 1fr; } .product-grid { grid-template-columns: 1fr; } }
+  .partner-hero {
+    background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+    color: white;
+    padding: 4rem 0;
+  }
+
+  .partner-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .partner-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .partner-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #1a365d;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .partner-about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-card h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .product-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .product-card li {
+    padding: 0.5rem 0;
+    color: #4a5568;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+    padding-right: 1.5rem;
+  }
+
+  .product-card li:before {
+    content: "•";
+    color: #3182ce;
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+  }
+
+  .product-card li:last-child {
+    border-bottom: none;
+  }
+
+  .partner-products {
+    background: #f7fafc;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #48bb78;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature h4 {
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature p {
+    color: #718096;
+  }
+
+  .partner-cta {
+    background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .partner-cta h2 {
+    color: white;
+  }
+
+  .partner-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #48bb78;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #38a169;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .partner-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .partner-intro h1 {
+      font-size: 1.75rem;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
