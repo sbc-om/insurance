@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  getInsuranceCategory,
+  getInsuranceProduct,
+  type InsuranceCategoryKey,
+  type SupportedLang,
+} from "../lib/insuranceProducts";
+import i18next from "../lib/i18n";
+
+interface Props {
+  lang: SupportedLang;
+  categoryKey: InsuranceCategoryKey;
+  productSlug: string;
+  basePath: string;
+}
+
+const { lang, categoryKey, productSlug, basePath } = Astro.props;
+await i18next.changeLanguage(lang);
+
+const category = getInsuranceCategory(categoryKey);
+const product = getInsuranceProduct(categoryKey, productSlug);
+
+if (!product) {
+  throw new Error(`Unknown insurance product: ${categoryKey}/${productSlug}`);
+}
+
+const isRTL = lang !== "en";
+
+const copy = {
+  en: {
+    eyebrow: "Placeholder page",
+    description: "This product page has been created and reserved. Detailed content, benefits, requirements, and insurer information can be completed later.",
+    backLabel: "Back to category",
+  },
+  fa: {
+    eyebrow: "صفحه خالی محصول",
+    description: "این صفحه برای این محصول ایجاد شده و فعلا به صورت خالی نگه داشته شده است. جزئیات، مزایا، شرایط و اطلاعات تکمیلی بعدا به آن اضافه می‌شود.",
+    backLabel: "بازگشت به دسته‌بندی",
+  },
+  ar: {
+    eyebrow: "صفحة منتج فارغة",
+    description: "تم إنشاء هذه الصفحة لهذا المنتج وتركها فارغة حاليا. يمكن إضافة المحتوى التفصيلي والمزايا والشروط والمعلومات الإضافية لاحقا.",
+    backLabel: "العودة إلى الفئة",
+  },
+}[lang];
+---
+
+<Layout title={`${product.title} | ${category.title[lang]}`} lang={lang}>
+  <Header lang={lang} />
+
+  <main dir={isRTL ? "rtl" : "ltr"}>
+    <section class="placeholder-hero">
+      <div class="container placeholder-inner">
+        <span class="placeholder-badge">{copy.eyebrow}</span>
+        <h1>{product.title}</h1>
+        <p>{copy.description}</p>
+        <a href={basePath} class="back-link">{copy.backLabel}</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .placeholder-hero {
+    min-height: 56vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(160deg, #123456 0%, #1f4a7a 60%, #0f2740 100%);
+    color: #fff;
+    padding: 4rem 0;
+  }
+
+  .placeholder-inner {
+    max-width: 760px;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .placeholder-badge {
+    width: fit-content;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+  }
+
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.9;
+    font-size: 1.02rem;
+  }
+
+  .back-link {
+    width: fit-content;
+    margin-top: 0.5rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    background: #fff;
+    color: #123456;
+    font-weight: 700;
+  }
+</style>

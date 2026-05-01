@@ -1,0 +1,15 @@
+---
+import InsuranceProductPlaceholder from "../../../components/InsuranceProductPlaceholder.astro";
+import { insuranceCategories } from "../../../lib/insuranceProducts";
+
+export function getStaticPaths() {
+  return insuranceCategories.personal.products.map((product) => ({
+    params: { slug: product.slug },
+    props: { productSlug: product.slug },
+  }));
+}
+
+const { productSlug } = Astro.props;
+---
+
+<InsuranceProductPlaceholder lang="ar" categoryKey="personal" productSlug={productSlug} basePath="/ar/personal" />

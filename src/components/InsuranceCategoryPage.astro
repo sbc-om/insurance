@@ -1,0 +1,254 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  FaCarSide,
+  FaFileInvoiceDollar,
+  FaHeartbeat,
+  FaHome,
+  FaInfoCircle,
+  FaPlaneDeparture,
+  FaShip,
+  FaUserShield,
+} from "react-icons/fa";
+import {
+  getInsuranceCategory,
+  type InsuranceCategoryKey,
+  type SupportedLang,
+} from "../lib/insuranceProducts";
+import i18next from "../lib/i18n";
+
+interface Props {
+  lang: SupportedLang;
+  categoryKey: InsuranceCategoryKey;
+  basePath: string;
+}
+
+const { lang, categoryKey, basePath } = Astro.props;
+await i18next.changeLanguage(lang);
+
+const category = getInsuranceCategory(categoryKey);
+const isRTL = lang !== "en";
+
+const iconCycle = [
+  { Icon: FaCarSide, variant: "motor" },
+  { Icon: FaPlaneDeparture, variant: "travel" },
+  { Icon: FaHome, variant: "domestic" },
+  { Icon: FaHeartbeat, variant: "medical" },
+  { Icon: FaFileInvoiceDollar, variant: "credit" },
+  { Icon: FaShip, variant: "marine" },
+  { Icon: FaUserShield, variant: "accident" },
+  { Icon: FaInfoCircle, variant: "hub-icon" },
+];
+---
+
+<Layout title={category.title[lang]} lang={lang}>
+  <Header lang={lang} />
+
+  <main dir={isRTL ? "rtl" : "ltr"}>
+    <section class="page-hero">
+      <div class="container hero-inner">
+        <h1>{category.title[lang]}</h1>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="products-grid">
+          {category.products.map((product, index) => {
+            const { Icon, variant } = iconCycle[index % iconCycle.length];
+
+            return (
+              <a href={`${basePath}/${product.slug}`} class="product-card">
+                <div class={`product-icon ${variant}`}>
+                  <Icon />
+                </div>
+                <h3>{product.title}</h3>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(160deg, #123456 0%, #1f4a7a 60%, #0f2740 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+  }
+
+  .hero-inner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .page-content {
+    padding: 4rem 0 5rem;
+    background: var(--color-bg-light);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1.15rem 0.9rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 0.7rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .product-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .product-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-icon {
+    transform: scale(1.08);
+  }
+
+  .product-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .product-icon.motor {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+  }
+
+  .product-icon.travel {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+  }
+
+  .product-icon.domestic {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+  }
+
+  .product-icon.medical {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+  }
+
+  .product-icon.credit {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+  }
+
+  .product-icon.marine {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: white;
+  }
+
+  .product-icon.accident {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+  }
+
+  .product-icon.hub-icon {
+    background: linear-gradient(135deg, #c9a961, #b8963f);
+    color: white;
+  }
+
+  @media (max-width: 980px) {
+    .products-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .product-card {
+      padding: 1rem 0.65rem 0.9rem;
+      gap: 0.6rem;
+    }
+
+    .product-icon {
+      width: 58px;
+      height: 58px;
+    }
+
+    .product-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .product-card h3 {
+      font-size: 0.92rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .products-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

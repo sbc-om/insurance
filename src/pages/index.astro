@@ -3,17 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AlliancesCarousel from "../components/AlliancesCarousel.tsx";
+import HomeInsuranceCategories from "../components/HomeInsuranceCategories.astro";
 import i18next from "../lib/i18n";
-import {
-  FaCarSide,
-  FaFileInvoiceDollar,
-  FaHeartbeat,
-  FaHome,
-  FaInfoCircle,
-  FaPlaneDeparture,
-  FaShip,
-  FaUserShield,
-} from "react-icons/fa";
 
 await i18next.changeLanguage("en");
 const t = (key: string, options?: any) => i18next.t(key, options);
@@ -50,78 +41,7 @@ const alliances = [
     </section>
 
     <!-- Quick Insurance Offers Section -->
-    <section class="quick-offers" aria-label="Quick Insurance Offers">
-      <div class="container">
-        <div class="offers-wrapper">
-          <h2 class="offers-title">Explore Insurance Categories</h2>
-          <div class="insurance-grid">
-            <!-- Motor Insurance -->
-            <a href="/motor" class="insurance-card">
-              <div class="insurance-icon motor">
-                <FaCarSide />
-              </div>
-              <h3 class="insurance-title">Motor Insurance</h3>
-            </a>
-
-            <!-- Travel Insurance -->
-            <a href="/travel" class="insurance-card">
-              <div class="insurance-icon travel">
-                <FaPlaneDeparture />
-              </div>
-              <h3 class="insurance-title">Travel Insurance</h3>
-            </a>
-
-            <!-- Home Insurance -->
-            <a href="/home-insurance" class="insurance-card">
-              <div class="insurance-icon domestic">
-                <FaHome />
-              </div>
-              <h3 class="insurance-title">Home Insurance</h3>
-            </a>
-
-            <!-- Medical Insurance -->
-            <a href="/medical" class="insurance-card">
-              <div class="insurance-icon medical">
-                <FaHeartbeat />
-              </div>
-              <h3 class="insurance-title">Medical Insurance</h3>
-            </a>
-
-            <!-- Credit Life -->
-            <a href="/life" class="insurance-card">
-              <div class="insurance-icon credit">
-                <FaFileInvoiceDollar />
-              </div>
-              <h3 class="insurance-title">Credit Life</h3>
-            </a>
-
-            <!-- Marine Insurance -->
-            <a href="/contact" class="insurance-card">
-              <div class="insurance-icon marine">
-                <FaShip />
-              </div>
-              <h3 class="insurance-title">Marine Insurance</h3>
-            </a>
-
-            <!-- Personal Accident -->
-            <a href="/contact" class="insurance-card">
-              <div class="insurance-icon accident">
-                <FaUserShield />
-              </div>
-              <h3 class="insurance-title">Personal Accident</h3>
-            </a>
-
-            <!-- General Insurance Information -->
-            <a href="/contact" class="insurance-card hub-card">
-              <div class="insurance-icon hub-icon">
-                <FaInfoCircle />
-              </div>
-              <h3 class="insurance-title">General Information</h3>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeInsuranceCategories lang="en" />
 
     <!-- Strategic Alliances Section -->
     <section class="section alliances">
@@ -134,8 +54,8 @@ const alliances = [
     <!-- CTA Section -->
     <section class="section cta-section">
       <div class="container">
-        <h2 class="section-title">Ready to Get Protected?</h2>
-        <p class="section-description">Contact us for general information about insurers and insurance categories presented on this website.</p>
+        <h2 class="section-title">Have an insurance question?</h2>
+        <p class="section-description">We can help guide you and point you to the right insurance information.</p>
         <a href="/contact" class="btn btn-primary">{t("cta.contactUs")}</a>
       </div>
     </section>
@@ -233,6 +153,87 @@ const alliances = [
     color: var(--color-primary);
     text-align: center;
     margin-bottom: 3rem;
+    font-weight: 700;
+  }
+
+  .category-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .category-panel {
+    background: #fff;
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 18px 40px rgba(15, 39, 64, 0.08);
+    border: 1px solid rgba(18, 52, 86, 0.08);
+  }
+
+  .category-panel-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .category-audience {
+    margin: 0 0 0.4rem;
+    color: #8c6a1a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .category-panel-title {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+  }
+
+  .category-count {
+    min-width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #123456, #1f4a7a);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .category-link {
+    text-decoration: none;
+    color: var(--color-primary);
+    background: rgba(18, 52, 86, 0.05);
+    border: 1px solid rgba(18, 52, 86, 0.08);
+    border-radius: 999px;
+    padding: 0.6rem 0.9rem;
+    line-height: 1.4;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .category-link:hover {
+    background: rgba(18, 52, 86, 0.09);
+    border-color: rgba(18, 52, 86, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .category-overview-link {
+    display: inline-flex;
+    margin-top: 1.25rem;
+    text-decoration: none;
+    color: #8c6a1a;
     font-weight: 700;
   }
 
@@ -533,6 +534,10 @@ const alliances = [
       min-height: 38vh;
     }
 
+    .category-groups {
+      grid-template-columns: 1fr;
+    }
+
     .insurance-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
@@ -562,6 +567,14 @@ const alliances = [
 
     .quick-offers {
       padding: 3rem 0;
+    }
+
+    .category-panel {
+      padding: 1.2rem;
+    }
+
+    .category-panel-header {
+      align-items: center;
     }
 
     .insurance-grid {
