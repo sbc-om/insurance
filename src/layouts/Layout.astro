@@ -22,7 +22,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#1a365d" />
     <link rel="icon" type="image/png" sizes="32x32" href="/pwa/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png" />
@@ -276,6 +276,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     line-height: 1.6;
     width: 100%;
     overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   h1, h2, h3, h4, h5, h6 {
