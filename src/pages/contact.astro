@@ -64,52 +64,12 @@ await i18next.changeLanguage("en");
       </div>
     </section>
 
-    <section class="map-section" aria-label="Insurance location map">
-      <div class="container">
-        <div class="map-embed">
-          <iframe
-            title="Insurance location"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=58.357392%2C23.5819%2C58.367392%2C23.5919&layer=mapnik&marker=23.5869%2C58.362392"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
   </main>
 
   <Footer lang="en" />
 </Layout>
 
 <style>
-  .map-section {
-    padding: 0 0 4rem;
-  }
-
-  .map-embed {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    height: 380px;
-  }
-
-  .map-embed iframe {
-    width: 100%;
-    height: calc(100% + 30px);
-    border: 0;
-    display: block;
-  }
-
-  .map-embed::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
   .contact-stack {
     display: grid;
     gap: 1rem;
@@ -117,11 +77,5 @@ await i18next.changeLanguage("en");
 
   .contact-card h3 {
     margin-bottom: 0.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .map-embed {
-      height: 320px;
-    }
   }
 </style>
