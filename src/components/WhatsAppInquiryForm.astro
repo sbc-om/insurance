@@ -1,9 +1,8 @@
 ---
-import WhatsAppIcon from "./WhatsAppIcon";
-
 interface Props {
   variant: "contact" | "support";
   phone: string;
+  lang?: "en" | "ar" | "fa";
 }
 
 type InputField = {
@@ -33,38 +32,98 @@ type FormContent = {
   fields: FormField[];
 };
 
-const { variant, phone } = Astro.props;
+type LocalizedContentMap = Record<NonNullable<Props["lang"]>, Record<Props["variant"], FormContent>>;
 
-const contentMap: Record<Props["variant"], FormContent> = {
-  contact: {
-    title: "Send an inquiry",
-    description: "Complete the form below and we will open WhatsApp with a ready-to-send message to our team.",
-    helper: "Your details stay in your browser until you choose to send the message in WhatsApp.",
-    button: "Continue in WhatsApp",
-    status: "WhatsApp is opening with your message draft.",
-    fields: [
-      { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
-      { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
-      { name: "subject", label: "Subject", type: "text", placeholder: "What is this about?", required: true },
-      { name: "message", label: "Message", type: "textarea", placeholder: "Tell us how we can help.", required: true },
-    ],
+const { variant, phone, lang = "en" } = Astro.props;
+
+const contentMap: LocalizedContentMap = {
+  en: {
+    contact: {
+      title: "Send an inquiry",
+      description: "Complete the form below and we will open WhatsApp with a ready-to-send message to our team.",
+      helper: "Your details stay in your browser until you choose to send the message in WhatsApp.",
+      button: "Continue in WhatsApp",
+      status: "WhatsApp is opening with your message draft.",
+      fields: [
+        { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
+        { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
+        { name: "subject", label: "Subject", type: "text", placeholder: "What is this about?", required: true },
+        { name: "message", label: "Message", type: "textarea", placeholder: "Tell us how we can help.", required: true },
+      ],
+    },
+    support: {
+      title: "Request support",
+      description: "Share your support request and we will prepare a structured WhatsApp message for you.",
+      helper: "After submitting, WhatsApp opens in a new tab with your message pre-filled and ready to send.",
+      button: "Send via WhatsApp",
+      status: "WhatsApp is opening with your support request.",
+      fields: [
+        { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
+        { name: "email", label: "Email", type: "email", placeholder: "your@email.com", required: true },
+        { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
+        { name: "message", label: "How can we help?", type: "textarea", placeholder: "Describe your issue or question.", required: true },
+      ],
+    },
   },
-  support: {
-    title: "Request support",
-    description: "Share your support request and we will prepare a structured WhatsApp message for you.",
-    helper: "After submitting, WhatsApp opens in a new tab with your message pre-filled and ready to send.",
-    button: "Send via WhatsApp",
-    status: "WhatsApp is opening with your support request.",
-    fields: [
-      { name: "fullName", label: "Full name", type: "text", placeholder: "Your full name", required: true },
-      { name: "email", label: "Email", type: "email", placeholder: "your@email.com", required: true },
-      { name: "phone", label: "Phone", type: "tel", placeholder: "Your phone number", required: true },
-      { name: "message", label: "How can we help?", type: "textarea", placeholder: "Describe your issue or question.", required: true },
-    ],
+  ar: {
+    contact: {
+      title: "أرسل استفسارًا",
+      description: "املأ النموذج أدناه وسنفتح واتساب برسالة جاهزة للإرسال إلى فريقنا.",
+      helper: "تبقى بياناتك داخل المتصفح حتى تختار إرسال الرسالة عبر واتساب.",
+      button: "المتابعة عبر واتساب",
+      status: "يتم الآن فتح واتساب مع مسودة رسالتك.",
+      fields: [
+        { name: "fullName", label: "الاسم الكامل", type: "text", placeholder: "اكتب اسمك الكامل", required: true },
+        { name: "phone", label: "رقم الهاتف", type: "tel", placeholder: "اكتب رقم هاتفك", required: true },
+        { name: "subject", label: "الموضوع", type: "text", placeholder: "ما موضوع الرسالة؟", required: true },
+        { name: "message", label: "الرسالة", type: "textarea", placeholder: "أخبرنا كيف يمكننا مساعدتك.", required: true },
+      ],
+    },
+    support: {
+      title: "طلب دعم",
+      description: "شارك طلب الدعم الخاص بك وسنجهز لك رسالة واتساب منظمة وجاهزة للإرسال.",
+      helper: "بعد الإرسال، يفتح واتساب في تبويب جديد مع رسالتك مكتملة وجاهزة للإرسال.",
+      button: "إرسال عبر واتساب",
+      status: "يتم الآن فتح واتساب مع طلب الدعم الخاص بك.",
+      fields: [
+        { name: "fullName", label: "الاسم الكامل", type: "text", placeholder: "اكتب اسمك الكامل", required: true },
+        { name: "email", label: "البريد الإلكتروني", type: "email", placeholder: "name@example.com", required: true },
+        { name: "phone", label: "رقم الهاتف", type: "tel", placeholder: "اكتب رقم هاتفك", required: true },
+        { name: "message", label: "كيف يمكننا مساعدتك؟", type: "textarea", placeholder: "اشرح المشكلة أو الاستفسار الذي تحتاجه.", required: true },
+      ],
+    },
+  },
+  fa: {
+    contact: {
+      title: "ارسال درخواست",
+      description: "فرم زیر را تکمیل کنید تا واتس اپ با پیام آماده ارسال برای تیم ما باز شود.",
+      helper: "اطلاعات شما تا زمانی که خودتان ارسال در واتس اپ را انتخاب نکنید، فقط در مرورگر شما می ماند.",
+      button: "ادامه در واتس اپ",
+      status: "واتس اپ با پیش نویس پیام شما در حال باز شدن است.",
+      fields: [
+        { name: "fullName", label: "نام و نام خانوادگی", type: "text", placeholder: "نام کامل خود را وارد کنید", required: true },
+        { name: "phone", label: "شماره تماس", type: "tel", placeholder: "شماره تماس خود را وارد کنید", required: true },
+        { name: "subject", label: "موضوع", type: "text", placeholder: "موضوع پیام چیست؟", required: true },
+        { name: "message", label: "پیام", type: "textarea", placeholder: "بگویید چطور می توانیم کمک کنیم.", required: true },
+      ],
+    },
+    support: {
+      title: "درخواست پشتیبانی",
+      description: "درخواست پشتیبانی خود را ثبت کنید تا یک پیام ساختاریافته برای ارسال در واتس اپ آماده شود.",
+      helper: "بعد از ثبت، واتس اپ در یک تب جدید با پیام از پیش آماده شما باز می شود.",
+      button: "ارسال از طریق واتس اپ",
+      status: "واتس اپ با درخواست پشتیبانی شما در حال باز شدن است.",
+      fields: [
+        { name: "fullName", label: "نام و نام خانوادگی", type: "text", placeholder: "نام کامل خود را وارد کنید", required: true },
+        { name: "email", label: "ایمیل", type: "email", placeholder: "name@example.com", required: true },
+        { name: "phone", label: "شماره تماس", type: "tel", placeholder: "شماره تماس خود را وارد کنید", required: true },
+        { name: "message", label: "چطور می توانیم کمک کنیم؟", type: "textarea", placeholder: "مسئله یا درخواست خود را توضیح دهید.", required: true },
+      ],
+    },
   },
 };
 
-const content = contentMap[variant];
+const content = contentMap[lang][variant];
 ---
 
 <form
@@ -73,15 +132,12 @@ const content = contentMap[variant];
   data-phone={phone}
   data-form-title={content.title}
   data-status-message={content.status}
+  data-lang={lang}
 >
   <div class="whatsapp-form-header">
     <div>
       <h2 class="section-title-alt">{content.title}</h2>
       <p class="muted whatsapp-form-description">{content.description}</p>
-    </div>
-    <div class="whatsapp-pill" aria-hidden="true">
-      <WhatsAppIcon />
-      <span>WhatsApp</span>
     </div>
   </div>
 
@@ -181,27 +237,13 @@ const content = contentMap[variant];
   }
 
   .whatsapp-form-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
+    display: grid;
+    gap: 0.5rem;
   }
 
   .whatsapp-form-description {
     margin: 0.45rem 0 0;
-    max-width: 48ch;
-  }
-
-  .whatsapp-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #25d366, #1faa52);
-    color: #fff;
-    font-weight: 700;
-    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.24);
+    max-width: 52ch;
   }
 
   .form-fields {
@@ -212,6 +254,22 @@ const content = contentMap[variant];
   .field-group {
     display: grid;
     gap: 0.4rem;
+  }
+
+  .whatsapp-form[data-lang="ar"],
+  .whatsapp-form[data-lang="fa"] {
+    direction: rtl;
+  }
+
+  .whatsapp-form[data-lang="ar"] .field-label,
+  .whatsapp-form[data-lang="fa"] .field-label,
+  .whatsapp-form[data-lang="ar"] .whatsapp-form-description,
+  .whatsapp-form[data-lang="fa"] .whatsapp-form-description,
+  .whatsapp-form[data-lang="ar"] .whatsapp-note,
+  .whatsapp-form[data-lang="fa"] .whatsapp-note,
+  .whatsapp-form[data-lang="ar"] .whatsapp-status,
+  .whatsapp-form[data-lang="fa"] .whatsapp-status {
+    text-align: right;
   }
 
   .field-label {
@@ -258,6 +316,11 @@ const content = contentMap[variant];
     justify-self: start;
   }
 
+  .whatsapp-form[data-lang="ar"] .whatsapp-submit,
+  .whatsapp-form[data-lang="fa"] .whatsapp-submit {
+    justify-self: end;
+  }
+
   .whatsapp-status {
     min-height: 1.2em;
     margin: 0;
@@ -268,14 +331,6 @@ const content = contentMap[variant];
   @media (max-width: 768px) {
     .whatsapp-form {
       padding: 1.2rem;
-    }
-
-    .whatsapp-form-header {
-      flex-direction: column;
-    }
-
-    .whatsapp-pill {
-      padding: 0.65rem 0.9rem;
     }
   }
 </style>
