@@ -19,7 +19,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
 ---
 
 <!doctype html>
-<html lang={lang} dir={lang === "ar" || lang === "fa" ? "rtl" : "ltr"} data-overlayscrollbars-initialize>
+<html lang={lang} dir={lang === "ar" || lang === "fa" ? "rtl" : "ltr"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
@@ -39,8 +39,10 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
       rel="stylesheet"
     />
   </head>
-  <body data-overlayscrollbars-initialize>
-    <slot />
+  <body>
+    <div id="page-scroll-root" class="page-scroll-root" data-overlayscrollbars-initialize>
+      <slot />
+    </div>
 
     <a
       href={whatsappLink}
@@ -225,9 +227,11 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     <script>
       import { registerSW } from 'virtual:pwa-register';
 
-      registerSW({
-		immediate: true,
-	  });
+      if (import.meta.env.PROD) {
+        registerSW({
+		  immediate: true,
+	    });
+      }
     </script>
 
     <script>
@@ -252,7 +256,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
 
       const isScrollableElement = (element: Element): element is HTMLElement => {
         if (!(element instanceof HTMLElement)) return false;
-        if (element === document.body) return true;
+        if (element === document.body || element === document.documentElement) return false;
         if (element instanceof HTMLTextAreaElement) return true;
 
         const style = window.getComputedStyle(element);
@@ -261,11 +265,15 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
       };
 
       const initOverlayScrollbars = () => {
-        if (!(document.body instanceof HTMLElement)) return;
+        const pageScrollRoot = document.getElementById('page-scroll-root');
 
-        OverlayScrollbars(document.body, overlayTheme);
+        if (pageScrollRoot instanceof HTMLElement) {
+          OverlayScrollbars(pageScrollRoot, overlayTheme);
+        }
 
         document.querySelectorAll('*').forEach((element: Element) => {
+          if (element === pageScrollRoot) return;
+
           if (isScrollableElement(element)) {
             OverlayScrollbars(element, overlayTheme);
           }
@@ -350,8 +358,16 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     background-color: var(--color-bg);
     line-height: 1.6;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .page-scroll-root {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: auto;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
