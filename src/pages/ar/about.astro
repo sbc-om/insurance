@@ -2,6 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import {
+  FaBuilding,
+  FaCheckCircle,
+  FaCompass,
+  FaHandshake,
+  FaHeadset,
+  FaShieldAlt,
+  FaUserShield,
+  FaUsers,
+} from "react-icons/fa";
 import i18next from "../../lib/i18n";
 
 await i18next.changeLanguage("ar");
@@ -11,78 +21,321 @@ await i18next.changeLanguage("ar");
   <Header lang="ar" />
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>حول التأمين</h1>
-        <p>موقع متعدد اللغات للتعريف بشركات التأمين وفئات التأمين في سلطنة عمان.</p>
+    <section class="page-hero about-hero">
+      <div class="container about-hero-grid">
+        <div>
+          <h1>نساعدك على اختيار أفضل شركة ووثيقة تأمين.</h1>
+          <p class="about-hero-text">جهة نشطة في قطاع التأمين في عُمان، ترشدك إلى الشركة والتغطية المناسبة.</p>
+        </div>
       </div>
     </section>
 
     <section class="page-content">
       <div class="container two-col">
         <div>
-          <h2 class="section-title-alt">ما هو هذا الموقع</h2>
-          <p class="muted">التأمين موقع معلوماتي أُعد لعرض شركات التأمين وفئات التأمين والمعلومات العامة ذات الصلة بالسوق العماني باللغات العربية والإنجليزية والفارسية.</p>
+          <h2 class="section-title-alt">من نحن</h2>
+          <p class="muted">نحن فريق مهني في سوق التأمين العماني، نساعدك على اختيار تغطية تناسب احتياجك الحقيقي.</p>
           <div class="badge-list" style="margin-top:1rem;">
-            <span class="badge">متعدد اللغات</span>
-            <span class="badge">معلوماتي</span>
-            <span class="badge">عُمان</span>
+            <span class="badge">مبني على الاستشارة</span>
+            <span class="badge">بحسب الاحتياج</span>
+            <span class="badge">سوق عُمان</span>
           </div>
         </div>
-        <div class="card">
-          <h3>الغرض</h3>
-          <p>الغرض من هذا الموقع هو مساعدة الزائر على مراجعة شركات التأمين والتعرف على فئات التأمين الرئيسية المعروضة فيه.</p>
-          <h3 style="margin-top:1rem;">الطابع</h3>
-          <p>الموقع محايد في الصياغة ولا يصدر وثائق تأمين ولا يضمن التغطية ولا يحل محل المستندات الرسمية الخاصة بكل شركة تأمين.</p>
+        <div class="card about-side-card">
+          <h3 class="about-inline-heading">
+            <span class="about-inline-icon about-icon-blue"><FaUsers /></span>
+            <span>ماذا نفعل</span>
+          </h3>
+          <p>نساعدك على الوصول إلى الشركة والوثيقة الأنسب لاحتياجك.</p>
+          <h3 class="about-inline-heading" style="margin-top:1rem;">
+            <span class="about-inline-icon about-icon-green"><FaUserShield /></span>
+            <span>قيمتنا</span>
+          </h3>
+          <p>نحوّل كثرة الخيارات إلى مسار أوضح وأسرع نحو القرار الصحيح.</p>
         </div>
       </div>
     </section>
 
     <section class="page-content" id="values">
       <div class="container">
-        <h2 class="section-title-alt">مبادئ المحتوى</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>الوضوح</h3>
-            <p>يتم تنظيم المعلومات التأمينية بطريقة تسهّل على الزائر قراءتها ومراجعتها.</p>
+        <h2 class="section-title-alt">لماذا تنجح طريقتنا</h2>
+        <div class="card-grid about-principles-grid">
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-gold"><FaCompass /></div>
+            <h3>الاحتياج أولاً</h3>
+            <p>نبدأ من احتياجك ثم نحدد الخيارات الأنسب.</p>
           </div>
-          <div class="card">
-            <h3>الحياد</h3>
-            <p>المحتوى مخصص للتعريف العام ويتجنب الصياغة الترويجية أو الاستشارية.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-blue"><FaBuilding /></div>
+            <h3>فهم السوق</h3>
+            <p>نعمل برؤية عملية لسوق التأمين في عُمان.</p>
           </div>
-          <div class="card">
-            <h3>الشفافية</h3>
-            <p>ينبغي الرجوع إلى الوثائق الرسمية لكل شركة تأمين لمعرفة الشروط والاستثناءات والتغطيات النهائية.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-green"><FaHandshake /></div>
+            <h3>شرح واضح</h3>
+            <p>نجعل الفروقات بين التغطيات أسهل في الفهم.</p>
           </div>
-          <div class="card">
-            <h3>سهولة الوصول</h3>
-            <p>تم إعداد الموقع ليوفر تجربة متسقة عبر عدة لغات.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-red"><FaCheckCircle /></div>
+            <h3>قرار أفضل</h3>
+            <p>هدفنا أن تختار بثقة ووضوح.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="page-content">
-      <div class="container card-grid">
-        <div class="card">
-          <h3>ما الذي ستجده هنا</h3>
-          <p class="muted">مقدمات عامة عن تأمين السيارات والطبي والحياة والسفر والمنزل والتأمينات المؤسسية، إضافة إلى صفحات تعريفية بالشركات.</p>
+      <div class="container card-grid about-benefits-grid">
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-blue"><FaBuilding /></div>
+          <h3>اختيار أفضل شركة</h3>
+          <p class="muted">اعثر على الشركة الأقرب إلى توقعاتك وميزانيتك.</p>
         </div>
-        <div class="card">
-          <h3>لمن هذا الموقع</h3>
-          <p class="muted">للأفراد والعائلات والشركات الباحثين عن عرض منظم لسوق التأمين في سلطنة عمان.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-gold"><FaShieldAlt /></div>
+          <h3>اختيار أفضل منتج</h3>
+          <p class="muted">اختر الوثيقة التي تناسب احتياجك الحقيقي.</p>
         </div>
-        <div class="card">
-          <h3>ملاحظة مهمة</h3>
-          <p class="muted">الأسعار وقرارات الاكتتاب والتغطيات النهائية وإجراءات المطالبات تبقى ضمن مسؤولية شركة التأمين المعنية.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-green"><FaUsers /></div>
+          <h3>للأفراد والشركات</h3>
+          <p class="muted">إرشاد للتأمين الشخصي والعائلي وتأمين الأعمال.</p>
         </div>
-        <div class="card">
-          <h3>الشركة</h3>
-          <p class="muted">يتم تقديم هذا الموقع كمنصة معلومات عامة عن التأمين في سلطنة عمان.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-red"><FaHeadset /></div>
+          <h3>مساندة مهنية</h3>
+          <p class="muted">نجعل رحلة اختيار التأمين أوضح وأسرع.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="page-content about-cta-strip">
+      <div class="container about-cta-box">
+        <div>
+          <p class="about-highlight-label">هل أنت جاهز؟</p>
+          <h2>أخبرنا باحتياجك وسنساعدك في الاختيار الصحيح.</h2>
+        </div>
+        <a href="/ar/contact" class="btn btn-primary">ابدأ التواصل</a>
       </div>
     </section>
   </main>
 
   <Footer lang="ar" />
 </Layout>
+
+<style>
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.22), transparent 30%);
+    pointer-events: none;
+  }
+
+  .about-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .about-hero-text {
+    max-width: 60ch;
+    margin-top: 0.85rem;
+    opacity: 0.95;
+  }
+
+  .about-card-icon,
+  .about-side-icon,
+  .about-inline-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  }
+
+  .about-card-icon,
+  .about-side-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .about-inline-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .about-inline-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 0.85rem;
+    font-size: 1rem;
+    box-shadow: none;
+  }
+
+  .about-bg-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .about-bg-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.7rem;
+    opacity: 0.09;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-bg-card h3,
+  .about-bg-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-icon-soft-gold {
+    color: #d79312;
+  }
+
+  .about-icon-soft-blue {
+    color: #1f5fbf;
+  }
+
+  .about-icon-soft-green {
+    color: #118a56;
+  }
+
+  .about-icon-soft-red {
+    color: #cc3d32;
+  }
+
+  .about-icon-gold {
+    background: linear-gradient(135deg, #f6c453, #d79312);
+  }
+
+  .about-icon-blue {
+    background: linear-gradient(135deg, #2c7be5, #123f7a);
+  }
+
+  .about-icon-green {
+    background: linear-gradient(135deg, #1fbf75, #0d8d58);
+  }
+
+  .about-icon-red {
+    background: linear-gradient(135deg, #f46b5a, #c8352d);
+  }
+
+  .about-highlight-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0.78;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-feature-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .about-feature-list li {
+    position: relative;
+    padding-right: 1.4rem;
+  }
+
+  .about-feature-list li::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0.55rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .about-side-card {
+    border: 1px solid rgba(26, 54, 93, 0.08);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  }
+
+  .about-cta-strip {
+    padding-top: 0;
+  }
+
+  .about-principles-grid.card-grid,
+  .about-benefits-grid.card-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .about-principles-grid .about-bg-card,
+  .about-benefits-grid .about-bg-card {
+    min-height: 0;
+  }
+
+  .about-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: calc(100% - 2rem);
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(44, 82, 130, 0.14));
+    border: 1px solid rgba(26, 54, 93, 0.08);
+  }
+
+  .about-cta-box h2 {
+    color: var(--color-primary);
+    max-width: 30ch;
+  }
+
+  @media (max-width: 900px) {
+    .about-principles-grid.card-grid,
+    .about-benefits-grid.card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-cta-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-bg-icon {
+      left: 0.8rem;
+      top: 50%;
+      font-size: 3.9rem;
+    }
+
+    .about-cta-box {
+      width: calc(100% - 1.25rem);
+    }
+
+    .about-cta-box {
+      padding: 1.25rem;
+    }
+  }
+</style>

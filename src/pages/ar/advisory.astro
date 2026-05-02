@@ -2,47 +2,251 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import {
+  FaBalanceScale,
+  FaBuilding,
+  FaCheckCircle,
+  FaClipboardCheck,
+  FaComments,
+  FaSearch,
+  FaUserShield,
+  FaUsers,
+} from "react-icons/fa";
 import i18next from "../../lib/i18n";
 
 await i18next.changeLanguage("ar");
 ---
 
-<Layout title="الخدمات الاستشارية" lang="ar">
+<Layout title="استشارة مجانية" lang="ar">
   <Header lang="ar" />
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>الخدمات الاستشارية</h1>
-        <p>نصح واضح وتغطية أفضل.</p>
+    <section class="page-hero consult-hero">
+      <div class="container consult-hero-grid">
+        <div>
+          <h1>استشارة مجانية</h1>
+          <p class="consult-hero-text">أخبرنا بما تحتاج إليه وسنساعدك في التوجه نحو شركة التأمين والوثيقة المناسبة في عُمان.</p>
+        </div>
       </div>
     </section>
 
     <section class="page-content">
-      <div class="container card-grid">
-        <div class="card">
-          <h3>خطط مخصصة</h3>
-          <p>خطط مناسبة لك.</p>
+      <div class="container card-grid consult-grid">
+        <div class="card consult-bg-card">
+          <div class="consult-bg-icon consult-icon-soft-blue"><FaUserShield /></div>
+          <h3>إرشاد شخصي</h3>
+          <p>نصيحة مبنية على احتياجك التأميني الحقيقي.</p>
         </div>
-        <div class="card">
-          <h3>تدقيق التأمين</h3>
-          <p>مراجعة ما لديك.</p>
+        <div class="card consult-bg-card">
+          <div class="consult-bg-icon consult-icon-soft-gold"><FaBuilding /></div>
+          <h3>اختيار شركة التأمين</h3>
+          <p>مساعدة في اختيار الشركة الأنسب.</p>
         </div>
-        <div class="card">
-          <h3>تقييم المخاطر</h3>
-          <p>تحديد المخاطر وتقليلها.</p>
+        <div class="card consult-bg-card">
+          <div class="consult-bg-icon consult-icon-soft-green"><FaClipboardCheck /></div>
+          <h3>اختيار المنتج</h3>
+          <p>الوصول إلى الوثيقة التي تناسب أولوياتك.</p>
         </div>
-        <div class="card">
-          <h3>الاتصال التأميني الدولي</h3>
-          <p>تغطية إقليمية وعالمية.</p>
+        <div class="card consult-bg-card">
+          <div class="consult-bg-icon consult-icon-soft-red"><FaSearch /></div>
+          <h3>شرح واضح</h3>
+          <p>فهم أسرع للتغطيات والحدود وقيمة كل خيار.</p>
         </div>
-        <div class="card">
-          <h3>الدفاع عن المطالبات</h3>
-          <p>دعم عند المطالبة.</p>
+        <div class="card consult-bg-card">
+          <div class="consult-bg-icon consult-icon-soft-blue"><FaUsers /></div>
+          <h3>للأفراد والشركات</h3>
+          <p>مناسب للتأمين الشخصي والعائلي وتأمين الأعمال.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="page-content consult-steps-section">
+      <div class="container">
+        <h2 class="section-title-alt">كيف تتم الاستشارة</h2>
+        <div class="card-grid consult-steps-grid">
+          <div class="card consult-step-card consult-bg-card">
+            <div class="consult-bg-icon consult-icon-soft-gold"><FaComments /></div>
+            <h3>1. أخبرنا باحتياجك</h3>
+            <p>شارك معنا نوع التغطية أو الحماية التي تبحث عنها.</p>
+          </div>
+          <div class="card consult-step-card consult-bg-card">
+            <div class="consult-bg-icon consult-icon-soft-green"><FaBalanceScale /></div>
+            <h3>2. راجع الخيارات</h3>
+            <p>نساعدك في مقارنة الشركات والمنتجات المرتبطة باحتياجك.</p>
+          </div>
+          <div class="card consult-step-card consult-bg-card">
+            <div class="consult-bg-icon consult-icon-soft-red"><FaCheckCircle /></div>
+            <h3>3. اختر بوضوح</h3>
+            <p>تحصل على مسار أوضح نحو قرار تأميني مناسب.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content consult-cta-section">
+      <div class="container consult-cta-box">
+        <div>
+          <p class="consult-label">ابدأ من هنا</p>
+          <h2>تحدث معنا بخصوص احتياجك التأميني.</h2>
+        </div>
+        <a href="/ar/contact" class="btn btn-primary">اتصل بنا</a>
       </div>
     </section>
   </main>
 
   <Footer lang="ar" />
 </Layout>
+
+<style>
+  .consult-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .consult-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.2), transparent 30%);
+    pointer-events: none;
+  }
+
+  .consult-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .consult-hero-text {
+    max-width: 58ch;
+    margin-top: 0.85rem;
+  }
+
+  .consult-icon-gold { background: linear-gradient(135deg, #f6c453, #d79312); }
+  .consult-icon-blue { background: linear-gradient(135deg, #2c7be5, #123f7a); }
+  .consult-icon-green { background: linear-gradient(135deg, #1fbf75, #0d8d58); }
+  .consult-icon-red { background: linear-gradient(135deg, #f46b5a, #c8352d); }
+  .consult-icon-soft-gold { color: #d79312; }
+  .consult-icon-soft-blue { color: #1f5fbf; }
+  .consult-icon-soft-green { color: #118a56; }
+  .consult-icon-soft-red { color: #cc3d32; }
+
+  .consult-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0.78;
+    margin-bottom: 0.75rem;
+  }
+
+  .consult-list {
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .consult-list li {
+    position: relative;
+    padding-right: 1.2rem;
+  }
+
+  .consult-list li::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .consult-grid .card,
+  .consult-step-card {
+    border: 1px solid rgba(26, 54, 93, 0.08);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
+  }
+
+  .consult-bg-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .consult-bg-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.7rem;
+    opacity: 0.09;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .consult-bg-card h3,
+  .consult-bg-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .consult-grid.card-grid,
+  .consult-steps-grid.card-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .consult-steps-section,
+  .consult-cta-section {
+    padding-top: 0;
+  }
+
+  .consult-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: calc(100% - 2rem);
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(44, 82, 130, 0.14));
+    border: 1px solid rgba(26, 54, 93, 0.08);
+  }
+
+  .consult-cta-box h2 {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 900px) {
+    .consult-grid.card-grid,
+    .consult-steps-grid.card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .consult-cta-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .consult-bg-icon {
+      left: 0.8rem;
+      font-size: 3.9rem;
+    }
+
+    .consult-cta-box {
+      width: calc(100% - 1.25rem);
+    }
+
+    .consult-cta-box {
+      padding: 1.25rem;
+    }
+  }
+</style>

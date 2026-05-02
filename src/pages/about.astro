@@ -2,6 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import {
+  FaBuilding,
+  FaCheckCircle,
+  FaCompass,
+  FaHandshake,
+  FaHeadset,
+  FaShieldAlt,
+  FaUserShield,
+  FaUsers,
+} from "react-icons/fa";
 import i18next from "../lib/i18n";
 
 await i18next.changeLanguage("en");
@@ -11,78 +21,323 @@ await i18next.changeLanguage("en");
   <Header lang="en" />
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>About Insurance</h1>
-        <p>A multilingual reference website that introduces insurance companies and insurance categories in Oman.</p>
+    <section class="page-hero about-hero">
+      <div class="container about-hero-grid">
+        <div>
+          <h1>Choose Insurance Better.</h1>
+          <p class="about-hero-text">An active insurance team in Oman, guiding you to the right company and coverage.</p>
+        </div>
       </div>
     </section>
 
     <section class="page-content">
       <div class="container two-col">
         <div>
-          <h2 class="section-title-alt">What This Website Is</h2>
-          <p class="muted">Insurance is an informational website developed to present insurance companies, insurance categories, and general product information relevant to the Oman market in English, Arabic, and Persian.</p>
+          <h2 class="section-title-alt">Who We Are</h2>
+          <p class="muted">We are a professional insurance-focused team in Oman, helping clients review the market and choose coverage that fits their real priorities.</p>
           <div class="badge-list" style="margin-top:1rem;">
-            <span class="badge">Multilingual</span>
-            <span class="badge">Informational</span>
-            <span class="badge">Oman</span>
+            <span class="badge">Advisory-Led</span>
+            <span class="badge">Needs-Based</span>
+            <span class="badge">Oman Market</span>
           </div>
         </div>
-        <div class="card">
-          <h3>Purpose</h3>
-          <p>This website is intended to help visitors review insurers and understand the main insurance categories presented on the site.</p>
-          <h3 style="margin-top:1rem;">Positioning</h3>
-          <p>The website is neutral in tone and does not issue policies, guarantee coverage, or replace the official documentation of any insurer.</p>
+        <div class="card about-side-card">
+          <h3 class="about-inline-heading">
+            <span class="about-inline-icon about-icon-blue"><FaUsers /></span>
+            <span>What We Do</span>
+          </h3>
+          <p>We help you identify the insurer and policy that best match your personal or business needs.</p>
+          <h3 class="about-inline-heading" style="margin-top:1rem;">
+            <span class="about-inline-icon about-icon-green"><FaUserShield /></span>
+            <span>Our Value</span>
+          </h3>
+          <p>We turn too many options into a shorter, clearer path to the right choice.</p>
         </div>
       </div>
     </section>
 
     <section class="page-content" id="values">
       <div class="container">
-        <h2 class="section-title-alt">Editorial Principles</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Clarity</h3>
-            <p>We organize insurance information in a way that is easier to scan and compare.</p>
+        <h2 class="section-title-alt">Why Our Approach Works</h2>
+        <div class="card-grid about-principles-grid">
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-gold"><FaCompass /></div>
+            <h3>Needs First</h3>
+            <p>We begin with your situation, then narrow the right options.</p>
           </div>
-          <div class="card">
-            <h3>Neutrality</h3>
-            <p>Content is written for general reference and avoids promotional or advisory positioning.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-blue"><FaBuilding /></div>
+            <h3>Market Awareness</h3>
+            <p>We work with a practical view of the Oman insurance market.</p>
           </div>
-          <div class="card">
-            <h3>Transparency</h3>
-            <p>Visitors are encouraged to rely on each insurer's official terms, exclusions, and policy documents.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-green"><FaHandshake /></div>
+            <h3>Clear Explanations</h3>
+            <p>We make coverage differences easier to compare.</p>
           </div>
-          <div class="card">
-            <h3>Accessibility</h3>
-            <p>The website is prepared to support visitors across multiple languages with consistent structure.</p>
+          <div class="card about-bg-card">
+            <div class="about-bg-icon about-icon-soft-red"><FaCheckCircle /></div>
+            <h3>Better Decisions</h3>
+            <p>Our goal is simple: help you choose with confidence.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="page-content">
-      <div class="container card-grid">
-        <div class="card">
-          <h3>What You Will Find</h3>
-          <p class="muted">General overviews of motor, medical, life, travel, home, and corporate insurance categories, along with insurer profile pages.</p>
+      <div class="container card-grid about-benefits-grid">
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-blue"><FaBuilding /></div>
+          <h3>Best Company Match</h3>
+          <p class="muted">Find the insurer that best matches your expectations and budget.</p>
         </div>
-        <div class="card">
-          <h3>Who It Is For</h3>
-          <p class="muted">Individuals, families, and businesses looking for a structured introduction to the insurance market in Oman.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-gold"><FaShieldAlt /></div>
+          <h3>Best Product Match</h3>
+          <p class="muted">Choose the policy that fits your real need.</p>
         </div>
-        <div class="card">
-          <h3>Important Note</h3>
-          <p class="muted">Coverage decisions, prices, underwriting outcomes, and claims handling remain the responsibility of the relevant insurer.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-green"><FaUsers /></div>
+          <h3>For Individuals and Businesses</h3>
+          <p class="muted">Personal, family, and business insurance guidance in one place.</p>
         </div>
-        <div class="card">
-          <h3>Company</h3>
-          <p class="muted">This website is presented as a general informational platform for insurance information in Oman.</p>
+        <div class="card about-bg-card">
+          <div class="about-bg-icon about-icon-soft-red"><FaHeadset /></div>
+          <h3>Professional Support</h3>
+          <p class="muted">A clearer and faster route to the right insurance decision.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="page-content about-cta-strip">
+      <div class="container about-cta-box">
+        <div>
+          <p class="about-highlight-label">Ready to choose better?</p>
+          <h2>Tell us what you need. We will help you find the right insurer and policy.</h2>
+        </div>
+        <a href="/contact" class="btn btn-primary">Start the Conversation</a>
       </div>
     </section>
   </main>
 
   <Footer lang="en" />
 </Layout>
+
+<style>
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.22), transparent 28%);
+    pointer-events: none;
+  }
+
+  .about-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .about-hero-text {
+    max-width: 60ch;
+    margin-top: 0.85rem;
+    opacity: 0.95;
+  }
+
+  .about-card-icon,
+  .about-side-icon,
+  .about-inline-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  }
+
+  .about-card-icon,
+  .about-side-icon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .about-inline-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .about-inline-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 0.85rem;
+    font-size: 1rem;
+    box-shadow: none;
+  }
+
+  .about-bg-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .about-bg-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.7rem;
+    opacity: 0.09;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .about-bg-card h3,
+  .about-bg-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-icon-soft-gold {
+    color: #d79312;
+  }
+
+  .about-icon-soft-blue {
+    color: #1f5fbf;
+  }
+
+  .about-icon-soft-green {
+    color: #118a56;
+  }
+
+  .about-icon-soft-red {
+    color: #cc3d32;
+  }
+
+  .about-icon-gold {
+    background: linear-gradient(135deg, #f6c453, #d79312);
+  }
+
+  .about-icon-blue {
+    background: linear-gradient(135deg, #2c7be5, #123f7a);
+  }
+
+  .about-icon-green {
+    background: linear-gradient(135deg, #1fbf75, #0d8d58);
+  }
+
+  .about-icon-red {
+    background: linear-gradient(135deg, #f46b5a, #c8352d);
+  }
+
+  .about-highlight-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-feature-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .about-feature-list li {
+    position: relative;
+    padding-left: 1.4rem;
+  }
+
+  .about-feature-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .about-side-card {
+    border: 1px solid rgba(26, 54, 93, 0.08);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  }
+
+  .about-cta-strip {
+    padding-top: 0;
+  }
+
+  .about-principles-grid.card-grid,
+  .about-benefits-grid.card-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .about-principles-grid .about-bg-card,
+  .about-benefits-grid .about-bg-card {
+    min-height: 0;
+  }
+
+  .about-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: calc(100% - 2rem);
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(44, 82, 130, 0.14));
+    border: 1px solid rgba(26, 54, 93, 0.08);
+  }
+
+  .about-cta-box h2 {
+    color: var(--color-primary);
+    max-width: 28ch;
+  }
+
+  @media (max-width: 900px) {
+    .about-principles-grid.card-grid,
+    .about-benefits-grid.card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-cta-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-bg-icon {
+      right: 0.8rem;
+      top: 50%;
+      font-size: 3.9rem;
+    }
+
+    .about-cta-box {
+      width: calc(100% - 1.25rem);
+    }
+
+    .about-cta-box {
+      padding: 1.25rem;
+    }
+  }
+</style>

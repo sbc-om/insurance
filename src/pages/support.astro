@@ -3,6 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppInquiryForm from "../components/WhatsAppInquiryForm.astro";
+import {
+  FaBuilding,
+  FaClock,
+  FaCompass,
+  FaHeadset,
+  FaLifeRing,
+  FaMapMarkerAlt,
+  FaQuestionCircle,
+  FaWhatsapp,
+} from "react-icons/fa";
 import i18next from "../lib/i18n";
 
 await i18next.changeLanguage("en");
@@ -12,26 +22,235 @@ await i18next.changeLanguage("en");
   <Header lang="en" />
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Support</h1>
-        <p>We are here to help with general questions about the information presented on this website.</p>
+    <section class="page-hero support-hero">
+      <div class="container support-hero-grid">
+        <div>
+          <h1>Support</h1>
+          <p class="support-hero-text">If you need help, clarification, or guidance, our team is here to support you with clear next steps.</p>
+        </div>
       </div>
     </section>
 
     <section class="page-content">
       <div class="container two-col">
         <div>
-          <h2 class="section-title-alt">Get support</h2>
-          <p class="muted">We respond within 1 business day.</p>
-          <div style="margin-top:1rem;">
-            <p><strong>Location:</strong> Muscat, Oman</p>
+          <h2 class="section-title-alt">How We Can Help</h2>
+          <p class="muted">Use this page for support requests, general questions, or help understanding the content and insurance information presented on this website.</p>
+          <div class="support-info-grid">
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-gold"><FaClock /></div>
+              <h3>Response Time</h3>
+              <p>Usually within 1 business day.</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-blue"><FaMapMarkerAlt /></div>
+              <h3>Location</h3>
+              <p>Muscat, Oman</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-green"><FaWhatsapp /></div>
+              <h3>Channel</h3>
+              <p>Support requests are prepared for WhatsApp for faster follow-up.</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-red"><FaQuestionCircle /></div>
+              <h3>Best For</h3>
+              <p>Questions about companies, categories, guidance, and website support.</p>
+            </div>
           </div>
         </div>
         <WhatsAppInquiryForm variant="support" phone="96891200634" />
+      </div>
+    </section>
+
+    <section class="page-content support-secondary-section">
+      <div class="container card-grid support-features-grid">
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-blue"><FaQuestionCircle /></div>
+          <h3>General Questions</h3>
+          <p class="muted">Ask about insurers, product categories, or how to navigate the information on the site.</p>
+        </div>
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-gold"><FaCompass /></div>
+          <h3>Guidance Requests</h3>
+          <p class="muted">Reach out if you need direction before choosing a company or insurance product.</p>
+        </div>
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-green"><FaHeadset /></div>
+          <h3>Follow-Up Support</h3>
+          <p class="muted">Use support when you need clarification after reviewing a page or insurance category.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content support-faq-section">
+      <div class="container">
+        <h2 class="section-title-alt">Common Support Topics</h2>
+        <div class="card-grid support-faq-grid">
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-blue"><FaBuilding /></div>
+            <h3>Which insurer is right for me?</h3>
+            <p>Tell us your need and we can help you narrow the most relevant options.</p>
+          </div>
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-gold"><FaCompass /></div>
+            <h3>Can you help me compare products?</h3>
+            <p>Yes. We can help you review categories and understand which product is closer to your priorities.</p>
+          </div>
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-green"><FaHeadset /></div>
+            <h3>Is this for individuals and businesses?</h3>
+            <p>Yes. Support is available for personal, family, and business-related questions.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <Footer lang="en" />
 </Layout>
+
+<style>
+  .support-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .support-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.2), transparent 28%);
+    pointer-events: none;
+  }
+
+  .support-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .support-hero-text {
+    max-width: 58ch;
+    margin-top: 0.9rem;
+  }
+
+  .support-panel-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  }
+
+  .support-panel-icon {
+    width: 74px;
+    height: 74px;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .support-icon-gold { background: linear-gradient(135deg, #f6c453, #d79312); }
+  .support-icon-blue { background: linear-gradient(135deg, #2c7be5, #123f7a); }
+  .support-icon-green { background: linear-gradient(135deg, #1fbf75, #0d8d58); }
+  .support-icon-red { background: linear-gradient(135deg, #f46b5a, #c8352d); }
+  .support-icon-soft-gold { color: #d79312; }
+  .support-icon-soft-blue { color: #1f5fbf; }
+  .support-icon-soft-green { color: #118a56; }
+  .support-icon-soft-red { color: #cc3d32; }
+
+  .support-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.78;
+    margin-bottom: 0.85rem;
+  }
+
+  .support-bullet-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .support-bullet-list li {
+    position: relative;
+    padding-left: 1.2rem;
+  }
+
+  .support-bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .support-info-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .support-info-card,
+  .support-feature-card,
+  .support-faq-card {
+    border: 1px solid rgba(26, 54, 93, 0.08);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
+  }
+
+  .support-bg-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .support-bg-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.7rem;
+    opacity: 0.09;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .support-bg-card h3,
+  .support-bg-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .support-info-grid,
+  .support-features-grid.card-grid,
+  .support-faq-grid.card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .support-secondary-section,
+  .support-faq-section {
+    padding-top: 0;
+  }
+
+  @media (max-width: 900px) {
+  }
+
+  @media (max-width: 600px) {
+    .support-bg-icon {
+      right: 0.8rem;
+      font-size: 3.9rem;
+    }
+  }
+</style>

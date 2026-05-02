@@ -2,6 +2,17 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import WhatsAppInquiryForm from "../../components/WhatsAppInquiryForm.astro";
+import {
+  FaBuilding,
+  FaClock,
+  FaCompass,
+  FaHeadset,
+  FaLifeRing,
+  FaMapMarkerAlt,
+  FaQuestionCircle,
+  FaWhatsapp,
+} from "react-icons/fa";
 import i18next from "../../lib/i18n";
 
 await i18next.changeLanguage("ar");
@@ -11,32 +22,233 @@ await i18next.changeLanguage("ar");
   <Header lang="ar" />
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>الدعم</h1>
-        <p>نحن هنا لمساعدتك في أي استفسار أو طلب.</p>
+    <section class="page-hero support-hero">
+      <div class="container support-hero-grid">
+        <div>
+          <h1>الدعم</h1>
+          <p class="support-hero-text">إذا كانت لديك أسئلة أو تحتاج إلى توضيح أو توجيه، ففريقنا جاهز لمساعدتك بخطوات واضحة وعملية.</p>
+        </div>
       </div>
     </section>
 
     <section class="page-content">
       <div class="container two-col">
         <div>
-          <h2 class="section-title-alt">الحصول على الدعم</h2>
-          <p class="muted">نرد خلال يوم عمل واحد.</p>
-          <div style="margin-top:1rem;">
-            <p><strong>الموقع:</strong> مسقط، عمان</p>
+          <h2 class="section-title-alt">كيف نساعدك</h2>
+          <p class="muted">هذه الصفحة مخصصة لطلبات الدعم والأسئلة العامة والمساعدة في فهم المعلومات والفئات التأمينية المعروضة في الموقع.</p>
+          <div class="support-info-grid">
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-gold"><FaClock /></div>
+              <h3>زمن الرد</h3>
+              <p>عادة خلال يوم عمل واحد.</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-blue"><FaMapMarkerAlt /></div>
+              <h3>الموقع</h3>
+              <p>مسقط، عُمان</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-green"><FaWhatsapp /></div>
+              <h3>قناة التواصل</h3>
+              <p>يتم تجهيز طلبك عبر واتساب لتسهيل المتابعة بشكل أسرع.</p>
+            </div>
+            <div class="card support-info-card support-bg-card">
+              <div class="support-bg-icon support-icon-soft-red"><FaQuestionCircle /></div>
+              <h3>مناسب لـ</h3>
+              <p>الأسئلة حول الشركات والفئات والإرشاد والدعم العام للموقع.</p>
+            </div>
           </div>
         </div>
-        <form class="card form">
-          <input type="text" placeholder="الاسم الكامل" aria-label="الاسم الكامل" />
-          <input type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني" />
-          <input type="tel" placeholder="رقم الهاتف" aria-label="رقم الهاتف" />
-          <textarea placeholder="كيف يمكننا مساعدتك؟" aria-label="الرسالة"></textarea>
-          <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-        </form>
+        <WhatsAppInquiryForm variant="support" phone="96891200634" />
+      </div>
+    </section>
+
+    <section class="page-content support-secondary-section">
+      <div class="container card-grid support-features-grid">
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-blue"><FaQuestionCircle /></div>
+          <h3>الأسئلة العامة</h3>
+          <p class="muted">اسأل عن الشركات أو فئات التأمين أو كيفية استخدام المعلومات الموجودة في الموقع.</p>
+        </div>
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-gold"><FaCompass /></div>
+          <h3>طلبات الإرشاد</h3>
+          <p class="muted">تواصل معنا إذا كنت تحتاج إلى توجيه قبل اختيار شركة أو منتج تأميني.</p>
+        </div>
+        <div class="card support-feature-card support-bg-card">
+          <div class="support-bg-icon support-icon-soft-green"><FaHeadset /></div>
+          <h3>المتابعة والتوضيح</h3>
+          <p class="muted">إذا بقي لديك أي غموض بعد تصفح الصفحات، فهذه الصفحة هي المكان الأنسب للمتابعة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content support-faq-section">
+      <div class="container">
+        <h2 class="section-title-alt">موضوعات دعم شائعة</h2>
+        <div class="card-grid support-faq-grid">
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-blue"><FaBuilding /></div>
+            <h3>أي شركة أنسب لي؟</h3>
+            <p>أخبرنا باحتياجك وسنساعدك في تضييق الخيارات الأكثر ملاءمة.</p>
+          </div>
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-gold"><FaCompass /></div>
+            <h3>هل يمكنكم مساعدتي في مقارنة المنتجات؟</h3>
+            <p>نعم، يمكننا مساعدتك في مراجعة الفئات وفهم الخيار الأقرب إلى أولوياتك.</p>
+          </div>
+          <div class="card support-faq-card support-bg-card">
+            <div class="support-bg-icon support-icon-soft-green"><FaHeadset /></div>
+            <h3>هل الدعم مخصص للأفراد والشركات؟</h3>
+            <p>نعم، الدعم متاح للاستفسارات الشخصية والعائلية وكذلك المتعلقة بالأعمال.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <Footer lang="ar" />
 </Layout>
+
+<style>
+  .support-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .support-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.2), transparent 30%);
+    pointer-events: none;
+  }
+
+  .support-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .support-hero-text {
+    max-width: 58ch;
+    margin-top: 0.9rem;
+  }
+
+  .support-panel-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  }
+
+  .support-panel-icon {
+    width: 74px;
+    height: 74px;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .support-icon-gold { background: linear-gradient(135deg, #f6c453, #d79312); }
+  .support-icon-blue { background: linear-gradient(135deg, #2c7be5, #123f7a); }
+  .support-icon-green { background: linear-gradient(135deg, #1fbf75, #0d8d58); }
+  .support-icon-red { background: linear-gradient(135deg, #f46b5a, #c8352d); }
+  .support-icon-soft-gold { color: #d79312; }
+  .support-icon-soft-blue { color: #1f5fbf; }
+  .support-icon-soft-green { color: #118a56; }
+  .support-icon-soft-red { color: #cc3d32; }
+
+  .support-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0.78;
+    margin-bottom: 0.85rem;
+  }
+
+  .support-bullet-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .support-bullet-list li {
+    position: relative;
+    padding-right: 1.2rem;
+  }
+
+  .support-bullet-list li::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .support-info-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .support-info-card,
+  .support-feature-card,
+  .support-faq-card {
+    border: 1px solid rgba(26, 54, 93, 0.08);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.07);
+  }
+
+  .support-bg-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .support-bg-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4.7rem;
+    opacity: 0.09;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .support-bg-card h3,
+  .support-bg-card p {
+    position: relative;
+    z-index: 1;
+  }
+
+  .support-info-grid,
+  .support-features-grid.card-grid,
+  .support-faq-grid.card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .support-secondary-section,
+  .support-faq-section {
+    padding-top: 0;
+  }
+
+  @media (max-width: 900px) {
+  }
+
+  @media (max-width: 600px) {
+    .support-bg-icon {
+      left: 0.8rem;
+      font-size: 3.9rem;
+    }
+  }
+</style>
