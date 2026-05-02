@@ -2,6 +2,7 @@
 import i18next from "../lib/i18n";
 import { ViewTransitions } from "astro:transitions";
 import WhatsAppIcon from "../components/WhatsAppIcon";
+import "overlayscrollbars/overlayscrollbars.css";
 
 interface Props {
   title?: string;
@@ -18,7 +19,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
 ---
 
 <!doctype html>
-<html lang={lang} dir={lang === "ar" || lang === "fa" ? "rtl" : "ltr"}>
+<html lang={lang} dir={lang === "ar" || lang === "fa" ? "rtl" : "ltr"} data-overlayscrollbars-initialize>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
@@ -38,7 +39,7 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-overlayscrollbars-initialize>
     <slot />
 
     <a
@@ -228,6 +229,62 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
 		immediate: true,
 	  });
     </script>
+
+    <script>
+      import { OverlayScrollbars } from 'overlayscrollbars';
+      import type { PartialOptions } from 'overlayscrollbars';
+
+      declare global {
+        interface Window {
+          __sbcOverlayScrollbarsBound?: boolean;
+        }
+      }
+
+      const overlayTheme = {
+        scrollbars: {
+          theme: 'os-theme-sbc',
+          autoHide: 'leave',
+          autoHideDelay: 450,
+          clickScroll: true,
+          dragScroll: true,
+        },
+      } satisfies PartialOptions;
+
+      const isScrollableElement = (element: Element): element is HTMLElement => {
+        if (!(element instanceof HTMLElement)) return false;
+        if (element === document.body) return true;
+        if (element instanceof HTMLTextAreaElement) return true;
+
+        const style = window.getComputedStyle(element);
+        const overflowValue = `${style.overflow} ${style.overflowX} ${style.overflowY}`;
+        return /(auto|scroll|overlay)/.test(overflowValue);
+      };
+
+      const initOverlayScrollbars = () => {
+        if (!(document.body instanceof HTMLElement)) return;
+
+        OverlayScrollbars(document.body, overlayTheme);
+
+        document.querySelectorAll('*').forEach((element: Element) => {
+          if (isScrollableElement(element)) {
+            OverlayScrollbars(element, overlayTheme);
+          }
+        });
+      };
+
+      if (!window.__sbcOverlayScrollbarsBound) {
+        window.__sbcOverlayScrollbarsBound = true;
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initOverlayScrollbars);
+        } else {
+          initOverlayScrollbars();
+        }
+
+        document.addEventListener('astro:page-load', initOverlayScrollbars);
+        document.addEventListener('astro:after-swap', initOverlayScrollbars);
+      }
+    </script>
   </body>
 </html>
 
@@ -241,6 +298,24 @@ const whatsappLink = "https://api.whatsapp.com/send?phone=96891200634";
     --color-bg: #ffffff;
     --color-bg-light: #f7fafc;
     --max-width: 1280px;
+    --os-size: 11px;
+    --os-padding-perpendicular: 2px;
+    --os-padding-axis: 2px;
+    --os-handle-border-radius: 999px;
+    --os-handle-bg: rgba(26, 54, 93, 0.46);
+    --os-handle-bg-hover: rgba(26, 54, 93, 0.66);
+    --os-handle-bg-active: rgba(26, 54, 93, 0.84);
+    --os-track-bg: rgba(26, 54, 93, 0.08);
+  }
+
+  .os-theme-sbc {
+    --os-size: 11px;
+    --os-handle-perpendicular-size: 100%;
+    --os-track-border-radius: 999px;
+    --os-track-bg: rgba(26, 54, 93, 0.08);
+    --os-handle-bg: rgba(26, 54, 93, 0.46);
+    --os-handle-bg-hover: rgba(26, 54, 93, 0.66);
+    --os-handle-bg-active: rgba(26, 54, 93, 0.84);
   }
 
   * {
